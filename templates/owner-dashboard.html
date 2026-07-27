@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owner Dashboard — Rental Rajkot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+
+<link rel="icon" href="/static/images/favi.jpeg" type="image/x-icon">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <aside class="admin-sidebar" id="ownerSidebar">
+    <div class="brand-lockup">
+      <span class="keypin-mark">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 4C8.5 4 4 8.5 4 14C4 19 7.4 23.2 12 24.4V33L14 36L16 33L18 36L20 33V24.4C24.6 23.2 28 19 28 14C28 8.5 23.5 4 18 4H14Z" fill="#E8A33D"/>
+          <circle cx="16" cy="13" r="4" fill="#171B2E"/>
+        </svg>
+      </span>
+      Rental<span class="brand-accent">Rajkot</span>
+    </div>
+    <nav class="nav flex-column">
+      <a class="nav-link active" href="owner/dashboard"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+      <a class="nav-link" href="/owner/add-listing"><i class="bi bi-plus-square"></i> Add Listing</a>
+      <a class="nav-link" href="/owner/my-listings"><i class="bi bi-houses"></i> My Listings</a>
+      <hr class="border-secondary my-3">
+      <a class="nav-link" href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="admin-main">
+    <div class="admin-topbar">
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-light d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#ownerSidebar">
+          <i class="bi bi-list fs-4"></i>
+        </button>
+        <div>
+          <h1 class="fs-4 fw-bold mb-0">Owner Dashboard</h1>
+          <span class="rr-text-muted small">Welcome back, {{ user_name }} , {{ user_email }}</span>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <i class="bi bi-bell fs-5 rr-text-muted"></i>
+        <img src="https://placehold.co/40x40/E8A33D/1F2430?text={{user_name[0]}}" class="rounded-circle" alt="Owner avatar placeholder">
+      </div>
+    </div>
+
+    <div class="admin-content">
+
+      <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-xl-3">
+          <div class="rr-stat-card">
+            <div class="rr-stat-icon" style="background: var(--rr-primary-pale); color: var(--rr-primary);"><i class="bi bi-houses"></i></div>
+            <div><div class="rr-stat-value">3</div><div class="rr-text-muted small">Active Listings</div></div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="rr-stat-card">
+            <div class="rr-stat-icon" style="background: var(--rr-teal-pale); color: #226E62;"><i class="bi bi-check-circle"></i></div>
+            <div><div class="rr-stat-value">{{hostels}}</div><div class="rr-text-muted small">Rooms Occupied</div></div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+          <div class="rr-stat-card">
+            <div class="rr-stat-icon" style="background: var(--rr-danger-pale); color: #A83A37;"><i class="bi bi-door-open"></i></div>
+            <div><div class="rr-stat-value">4</div><div class="rr-text-muted small">Rooms Vacant</div></div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="row g-3">
+        <div class="col-sm-6 col-xl-4">
+          <a href="/owner/add-listing" class="quick-action-card">
+            <div class="rr-step-circle mx-auto" style="width:56px;height:56px;font-size:1.3rem;"><i class="bi bi-plus-square"></i></div>
+            <div class="fw-semibold">Add New Listing</div>
+          </a>
+        </div>
+        <!-- <div class="col-sm-6 col-xl-4">
+          <a href="owner-my-listings.html" class="quick-action-card">
+            <div class="rr-step-circle mx-auto" style="width:56px;height:56px;font-size:1.3rem;"><i class="bi bi-houses"></i></div>
+            <div class="fw-semibold">Manage Listings</div>
+          </a>
+        </div> -->
+        <!-- <div class="col-sm-6 col-xl-4">
+          <a href="owner-inquiries.html" class="quick-action-card">
+            <div class="rr-step-circle mx-auto" style="width:56px;height:56px;font-size:1.3rem;"><i class="bi bi-chat-dots"></i></div>
+            <div class="fw-semibold">View Inquiries</div>
+          </a>
+        </div> -->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

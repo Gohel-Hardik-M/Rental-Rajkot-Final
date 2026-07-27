@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Listing — Rental Rajkot</title>
+
+<link rel="icon" href="/static/images/favi.jpeg" type="image/x-icon">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <aside class="admin-sidebar" id="ownerSidebar">
+    <div class="brand-lockup">
+      <span class="keypin-mark">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 4C8.5 4 4 8.5 4 14C4 19 7.4 23.2 12 24.4V33L14 36L16 33L18 36L20 33V24.4C24.6 23.2 28 19 28 14C28 8.5 23.5 4 18 4H14Z" fill="#E8A33D"/>
+          <circle cx="16" cy="13" r="4" fill="#171B2E"/>
+        </svg>
+      </span>
+      Rental<span class="brand-accent">Rajkot</span>
+    </div>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="/owner/dashboard"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+      <a class="nav-link active" href="/owner/add-listing"><i class="bi bi-plus-square"></i> Add Listing</a>
+      <a class="nav-link" href="/owner/my-listings"><i class="bi bi-houses"></i> My Listings</a>
+      <hr class="border-secondary my-3">
+      <a class="nav-link" href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="admin-main">
+    <div class="admin-topbar">
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-light d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#ownerSidebar">
+          <i class="bi bi-list fs-4"></i>
+        </button>
+        <h1 class="fs-4 fw-bold mb-0">Add New Listing</h1>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <img src="https://placehold.co/40x40/E8A33D/1F2430?text={{ request.session['user_name'][0]|upper}}" class="rounded-circle" alt="Owner avatar placeholder">
+      </div>
+    </div>
+
+    <div class="admin-content">
+      <form action="/owner/add-listing" method="POST" >
+        <div class="row g-4">
+          <div class="col-lg-8">
+
+            <!-- Property type -->
+            <div class="rr-form-card mb-4">
+              <h2 class="fs-5 fw-bold mb-3"><i class="bi bi-house-door text-primary me-1"></i> Property Type</h2>
+              <div class="row g-3">
+
+
+                <div class="col-sm-6">
+                  <div class="facility-check-card mb-0">
+                    <input class="form-check-input flex-shrink-0" type="radio" name="property_type" id="typeHostel" value="hostel" checked>
+                    <label class="form-check-label flex-grow-1" for="typeHostel">
+                      <span class="fw-semibold d-block">Hostel</span>
+                      <span class="rr-text-muted small">Shared dorm-style, multiple beds per room</span>
+                    </label>
+                  </div>
+                </div>
+
+
+
+
+                <div class="col-sm-6">
+                  <div class="facility-check-card mb-0">
+                    <input class="form-check-input flex-shrink-0" type="radio" name="property_type" id="typeHostel" value="pg" checked>
+                    <label class="form-check-label flex-grow-1" for="typeHostel">
+                      <span class="fw-semibold d-block">PG</span>
+                      <span class="rr-text-muted small">Shared dorm-style, multiple beds per room</span>
+                    </label>
+                  </div>
+                </div>
+
+
+                
+
+
+
+
+                <div class="col-sm-6">
+                  <div class="facility-check-card mb-0">
+                    <input class="form-check-input flex-shrink-0" type="radio" name="property_type" id="typeRoom" value="room">
+                    <label class="form-check-label flex-grow-1" for="typeRoom">
+                      <span class="fw-semibold d-block">Room</span>
+                      <span class="rr-text-muted small">Private or shared room in a flat/PG</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Basic details -->
+            <div class="rr-form-card mb-4">
+              <h2 class="fs-5 fw-bold mb-3"><i class="bi bi-card-text text-primary me-1"></i> Basic Details</h2>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="propertyName" class="form-label">Property Name</label>
+                  <input type="text" class="form-control" id="propertyName" name="property_name" placeholder="e.g. Shreeji Boys Hostel" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="areaSelect" class="form-label">Area / Location</label>
+                  <select class="form-select" id="areaSelect" name="area" required>
+                   <option selected disabled value="">Select an area...</option>
+
+<option value="aaji-dam">Aaji Dam</option>
+<option value="amin-marg">Amin Marg</option>
+<option value="astron-chowk">Astron Chowk</option>
+<option value="bedi">Bedi</option>
+<option value="bedi-para">Bedi Para</option>
+<option value="bhakti-nagar">Bhakti Nagar</option>
+<option value="bus-stand">Bus Stand</option>
+<option value="civil-hospital-road">Civil Hospital Road</option>
+<option value="dhebar-road">Dhebar Road</option>
+<option value="gondal-road">Gondal Road</option>
+<option value="greenland-chowk">Greenland Chowk</option>
+<option value="hanuman-madhi">Hanuman Madhi</option>
+<option value="jamnagar-road">Jamnagar Road</option>
+<option value="jangleshwar">Jangleshwar</option>
+<option value="kalavad-road">Kalavad Road</option>
+<option value="kisanpara">Kisanpara</option>
+<option value="kotecha-chowk">Kotecha Chowk</option>
+<option value="kuvadva-road">Kuvadva Road</option>
+<option value="limda-chowk">Limda Chowk</option>
+<option value="madhapar">Madhapar</option>
+<option value="mavdi">Mavdi</option>
+<option value="mavdi-main-road">Mavdi Main Road</option>
+<option value="morbi-road">Morbi Road</option>
+<option value="nanamava-main-road">Nana Mava Main Road</option>
+<option value="nanamava-circle">Nana Mava Circle</option>
+<option value="new-jagnath">New Jagnath</option>
+<option value="nyari-dam-road">Nyari Dam Road</option>
+<option value="panchayat-nagar">Panchayat Nagar</option>
+<option value="pedak-road">Pedak Road</option>
+<option value="popatpara">Popatpara</option>
+<option value="prahlad-plot">Prahlad Plot</option>
+<option value="race-course">Race Course</option>
+<option value="race-course-ring-road">Race Course Ring Road</option>
+<option value="raiya-road">Raiya Road</option>
+<option value="rajputpara">Rajputpara</option>
+<option value="ramkrishna-nagar">Ramkrishna Nagar</option>
+<option value="ranchhod-nagar">Ranchhod Nagar</option>
+<option value="ring-road">Ring Road</option>
+<option value="sadhu-vasvani-road">Sadhu Vasvani Road</option>
+<option value="samrat-industrial-area">Samrat Industrial Area</option>
+<option value="shapar-veraval">Shapar Veraval</option>
+<option value="subhash-road">Subhash Road</option>
+<option value="tagore-road">Tagore Road</option>
+<option value="trikon-baug">Trikon Baug</option>
+<option value="university-road">University Road</option>
+<option value="vavdi">Vavdi</option>
+<option value="vidya-nagar">Vidya Nagar</option>
+<option value="virani-chowk">Virani Chowk</option>
+<option value="150-feet-ring-road">150 Feet Ring Road</option>
+<option value="80-feet-road">80 Feet Road</option>
+<option value="yagnik-road">Yagnik Road</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="fullAddress" class="form-label">Full Address</label>
+                  <textarea class="form-control" id="fullAddress" name="address" rows="2" placeholder="Street, landmark, pincode" required></textarea>
+                </div>
+                <div class="col-md-6">
+                  <label for="nearestCollege" class="form-label">Nearest University / College</label>
+                  <select class="form-select" id="nearestCollege" name="nearest_college">
+             <option selected disabled value="">Select a college/university...</option>
+
+<!-- Universities -->
+<option value="atmiya-university">Atmiya University</option>
+<option value="marwadi-university">Marwadi University</option>
+<option value="rk-university">RK University</option>
+<option value="saurashtra-university">Saurashtra University</option>
+<option value="darshan-university">Darshan University</option>
+
+<!-- Engineering Colleges -->
+<option value="government-engineering-college">Government Engineering College (GEC)</option>
+<option value="vvp-engineering-college">V.V.P. Engineering College</option>
+<option value="atmiya-institute-of-technology-and-science">Atmiya Institute of Technology & Science</option>
+<option value="government-polytechnic-rajkot">Government Polytechnic Rajkot</option>
+
+<!-- Medical Colleges -->
+<option value="aiims-rajkot">AIIMS Rajkot</option>
+<option value="pandit-deendayal-upadhyay-medical-college">
+    Pandit Deendayal Upadhyay Medical College
+</option>
+<option value="government-nursing-college">Government Nursing College</option>
+<option value="bk-modi-government-pharmacy-college">
+    B.K. Modi Government Pharmacy College
+</option>
+
+<!-- Arts, Commerce & Science -->
+<option value="christ-college">Christ College</option>
+<option value="dharmendrasinhji-arts-college">
+    Dharmendrasinhji Arts College
+</option>
+<option value="h-and-h-b-kotak-institute-of-science">
+    H & H B Kotak Institute of Science
+</option>
+<option value="shri-matrumandir-institute">
+    Shri Matrumandir Institute
+</option>
+<option value="smt-k-s-n-school-of-business-management">
+    K.S.N. School of Business Management
+</option>
+
+<!-- Law -->
+<option value="amp-government-law-college">
+    A.M.P. Government Law College
+</option>
+
+<!-- Other Popular Colleges -->
+<option value="virani-science-college">
+    Shri M. & N. Virani Science College
+</option>
+<option value="harivandana-college">Harivandana College</option>
+<option value="sunshine-group-of-institutions">
+    Sunshine Group of Institutions
+</option>
+
+
+<!-- Default -->
+<option value="other">Other</option>
+<option value="not-near-specific-college">
+    Not near a specific college
+</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="genderPref" class="form-label">Gender Preference</label>
+                  <select class="form-select" id="genderPref" name="gender_preference">
+                    <option>Boys Only</option>
+                    <option>Girls Only</option>
+                    <option>Unisex / Any</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="propertyDescription" class="form-label">Description</label>
+                  <textarea class="form-control" id="propertyDescription" name="description" rows="3" placeholder="Describe the property, atmosphere, and who it's best suited for..."></textarea>
+                </div>
+              </div>
+            </div>
+            <!-- Facilities -->
+            <div class="rr-form-card mb-4">
+              <h2 class="fs-5 fw-bold mb-3"><i class="bi bi-stars text-primary me-1"></i> Facilities</h2>
+              <div class="row g-2">
+                <div class="col-sm-6 col-lg-4">
+                  <div class="facility-check-card"><input class="form-check-input flex-shrink-0" type="checkbox" id="facWifi2" name="facilities" value="wifi"><label class="form-check-label flex-grow-1" for="facWifi2"><i class="bi bi-wifi me-1"></i> WiFi</label></div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="facility-check-card"><input class="form-check-input flex-shrink-0" type="checkbox" id="facFood2" name="facilities" value="food"><label class="form-check-label flex-grow-1" for="facFood2"><i class="bi bi-egg-fried me-1"></i> Food Included</label></div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="facility-check-card"><input class="form-check-input flex-shrink-0" type="checkbox" id="facAc2" name="facilities" value="ac"><label class="form-check-label flex-grow-1" for="facAc2"><i class="bi bi-snow me-1"></i> AC</label></div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="facility-check-card"><input class="form-check-input flex-shrink-0" type="checkbox" id="facParking2" name="facilities" value="parking"><label class="form-check-label flex-grow-1" for="facParking2"><i class="bi bi-p-circle me-1"></i> Parking</label></div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="facility-check-card"><input class="form-check-input flex-shrink-0" type="checkbox" id="facCctv2" name="facilities" value="cctv"><label class="form-check-label flex-grow-1" for="facCctv2"><i class="bi bi-camera-video me-1"></i> CCTV</label></div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="facility-check-card"><input class="form-check-input flex-shrink-0" type="checkbox" id="facPower2" name="facilities" value="power_backup"><label class="form-check-label flex-grow-1" for="facPower2"><i class="bi bi-lightning-charge me-1"></i> Power Backup</label></div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="facility-check-card"><input class="form-check-input flex-shrink-0" type="checkbox" id="facGeyser2" name="facilities" value="geyser"><label class="form-check-label flex-grow-1" for="facGeyser2"><i class="bi bi-water me-1"></i> Geyser</label></div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="facility-check-card"><input class="form-check-input flex-shrink-0" type="checkbox" id="facLaundry2" name="facilities" value="laundry"><label class="form-check-label flex-grow-1" for="facLaundry2"><i class="bi bi-basket me-1"></i> Laundry</label></div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="facility-check-card"><input class="form-check-input flex-shrink-0" type="checkbox" id="facKitchen2" name="facilities" value="kitchen"><label class="form-check-label flex-grow-1" for="facKitchen2"><i class="bi bi-cup-hot me-1"></i> Kitchen Access</label></div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="facility-check-card mb-0"><input class="form-check-input flex-shrink-0" type="checkbox" id="facHousekeeping2" name="facilities" value="housekeeping"><label class="form-check-label flex-grow-1" for="facHousekeeping2"><i class="bi bi-brush me-1"></i> Housekeeping</label></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pricing -->
+            <div class="rr-form-card">
+               <div class="rr-form-card sticky-summary">
+              <h2 class="fs-5 fw-bold mb-3"><i class="bi bi-cash-coin text-primary me-1"></i> Pricing</h2>
+
+              <div class="mb-3">
+                <label for="monthlyRent" class="form-label">Monthly Rent (₹)</label>
+                <input type="number" class="form-control" id="monthlyRent" name="monthly_rent" placeholder="e.g. 4500" required>
+              </div>
+              <div class="mb-3">
+                <label for="depositAmount" class="form-label">Security Deposit (₹)</label>
+                <input type="number" class="form-control" id="depositAmount" name="deposit_amount" placeholder="e.g. 9000" required>
+              </div>
+              <div class="mb-4">
+                <label for="otherCharges" class="form-label">Other Charges (optional)</label>
+                <input type="text" class="form-control" id="otherCharges" name="other_charges" placeholder="e.g. Electricity as per usage">
+              </div>
+
+              <hr>
+
+    
+              <button type="submit" class="btn btn-rr-primary btn-rr-lg w-100 mb-2"><i class="bi bi-check2-circle"></i> Submit </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

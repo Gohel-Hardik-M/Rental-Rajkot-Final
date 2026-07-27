@@ -1,0 +1,181 @@
+CREATE TABLE search_preferences (
+
+    search_id SERIAL PRIMARY KEY,
+
+    property_type VARCHAR(20),
+
+    area VARCHAR(100),
+
+    university VARCHAR(150),
+
+    gender_preference VARCHAR(20),
+
+    searched_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE FUNCTION save_search_preference(
+
+    p_property_type VARCHAR,
+    p_area VARCHAR,
+    p_university VARCHAR,
+    p_gender_preference VARCHAR
+
+)
+
+RETURNS VOID
+
+LANGUAGE plpgsql
+
+AS $$
+
+BEGIN
+
+    INSERT INTO search_preferences(
+
+        property_type,
+        area,
+        university,
+        gender_preference
+
+    )
+
+    VALUES(
+
+        p_property_type,
+        p_area,
+        p_university,
+        p_gender_preference
+
+    );
+
+END;
+
+$$;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ALTER TABLE listings
+ADD COLUMN whatsapp_clicks INT DEFAULT 0,
+ADD COLUMN phone_clicks INT DEFAULT 0;
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE FUNCTION increase_whatsapp_click(
+
+    p_listing_id INT
+
+)
+
+RETURNS VOID
+
+LANGUAGE plpgsql
+
+AS
+$$
+
+BEGIN
+
+    UPDATE listings
+
+    SET whatsapp_clicks = whatsapp_clicks + 1
+
+    WHERE listing_id = p_listing_id;
+
+END;
+
+$$;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE FUNCTION increase_phone_click(
+
+    p_listing_id INT
+
+)
+
+RETURNS VOID
+
+LANGUAGE plpgsql
+
+AS
+$$
+
+BEGIN
+
+    UPDATE listings
+
+    SET phone_clicks = phone_clicks + 1
+
+    WHERE listing_id = p_listing_id;
+
+END;
+
+$$;
