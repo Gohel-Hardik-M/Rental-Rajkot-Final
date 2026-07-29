@@ -30,6 +30,10 @@ def index():
     return FileResponse("templates/index.html")
 
 
+@router.get("/about")
+def about():
+    return FileResponse("templates/about.html")
+
 
 
 @router.get("/listing/{listing_id}/whatsapp")
