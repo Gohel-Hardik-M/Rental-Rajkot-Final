@@ -450,3 +450,45 @@ a { text-decoration: none; }
   .admin-sidebar { position: fixed; left: -260px; top: 0; bottom: 0; z-index: 1050; transition: left 0.25s ease; }
   .admin-sidebar.show { left: 0; }
 }
+
+
+
+/* --------------------------------------------------------------------------
+   Value cards (About page — Mission / Vision / Values)
+   -------------------------------------------------------------------------- */
+
+.value-icon {
+  width: 60px; height: 60px;
+  border-radius: var(--rr-radius-md);
+  background: var(--rr-primary-pale);
+  color: var(--rr-primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 991.98px) {
+  .admin-sidebar { position: fixed; left: -260px; top: 0; bottom: 0; z-index: 1050; transition: left 0.25s ease; }
+  .admin-sidebar.show { left: 0; }
+}
+
+
+
+
+/* --------------------------------------------------------------------------
+   Stat blocks (About page)
+   -------------------------------------------------------------------------- */
+
+.rr-stat-block { text-align: center; }
+.rr-stat-block .rr-stat-number {
+  font-family: var(--rr-font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--rr-primary);
+  line-height: 1.1;
+}
+.rr-stat-block .rr-stat-label {
+  color: var(--rr-text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.35rem;
+}
