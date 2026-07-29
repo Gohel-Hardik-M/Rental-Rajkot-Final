@@ -30,6 +30,18 @@ def index():
     return FileResponse("templates/index.html")
 
 
+
+
+from fastapi.responses import FileResponse
+
+@router.get("/robots.txt", include_in_schema=False)
+def robots():
+    return FileResponse("static/robots.txt")
+
+@router.get("/sitemap.xml", include_in_schema=False)
+def sitemap():
+    return FileResponse("static/sitemap.xml")
+
 @router.get("/about")
 def about():
     return FileResponse("templates/about.html")
