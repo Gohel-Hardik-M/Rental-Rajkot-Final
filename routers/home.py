@@ -32,7 +32,6 @@ def index():
 
 
 
-
 @router.get("/listing/{listing_id}/whatsapp")
 def whatsapp_click(
         listing_id: int
