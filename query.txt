@@ -16,8 +16,6 @@ CREATE TABLE search_preferences (
 
 
 
-ABC
-
 
 
 

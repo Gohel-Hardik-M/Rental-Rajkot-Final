@@ -15,11 +15,17 @@ class ListingService:
     # Add New Listing
     # ----------------------------------
 
+    def get_listing_details_by_id(self, listing_id: int):
+
+        return self.repository.get_listing_details_by_id(listing_id)
+
 
 
     def increase_whatsapp_click(self, listing_id):
 
         self.repository.increase_whatsapp_click(listing_id)
+
+
 
     def increase_phone_click(self, listing_id):
 

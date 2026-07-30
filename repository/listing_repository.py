@@ -205,6 +205,68 @@ VALUES
     # -----------------------------
     # Delete Listing
     # -----------------------------
+
+
+    def get_listing_details_by_id(self, listing_id: int):
+
+        sql = """
+        SELECT
+            listing_id,
+            l.owner_id,
+            u.phone,
+            l.property_name,
+            l.property_type,
+            l.area,
+            l.full_address,
+            l.nearest_college,
+            l.gender_preference,
+           l. description,
+            l.facilities,
+            l.monthly_rent,
+            l.security_deposit,
+            l.other_charges
+        FROM listings l
+        JOIN users u
+            ON l.owner_id = u.user_id
+        WHERE l.listing_id = %s;
+    """
+
+        cursor = self.connection.cursor()
+
+        cursor.execute(sql, (listing_id,))
+
+        row = cursor.fetchone()
+
+        cursor.close()
+ 
+        if row is None:
+           return None
+
+        return ViewListing(
+        listing_id=row[0],
+        owner_id=row[1],
+        owner_phone=row[2],
+        property_name=row[3],
+        property_type=row[4],
+        area=row[5],
+        full_address=row[6],
+            university=row[7],
+        gender_preference=row[8],
+        description=row[9],
+        facilities=row[10],
+        monthly_rent=row[11],
+        security_deposit=row[12],
+        other_charges=row[13]
+    )
+
+
+
+
+
+
+
+
+
     def increase_phone_click(self, listing_id):
 
        cursor = self.connection.cursor()

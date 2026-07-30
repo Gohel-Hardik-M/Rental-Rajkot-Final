@@ -49,6 +49,8 @@
       <ul class="navbar-nav mx-auto gap-1 mt-3 mt-lg-0">
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item"><a class="nav-link active" href="/listings">Browse</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+
         </ul>
       <div class="d-flex gap-2 mt-3 mt-lg-0">
         <a href="/owner/register" class="btn btn-rr-outline"><i class="bi bi-house-add"></i> List Your Property</a>
@@ -61,8 +63,8 @@
 <div class="container py-3">
   <nav aria-label="breadcrumb" class="breadcrumb-rr">
     <ol class="breadcrumb mb-0">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Browse Listings</li>
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><a href="/listings">Browse Listings</a></li>
     </ol>
   </nav>
 </div>
@@ -73,7 +75,7 @@
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
       <div>
         <h1 class="rr-section-title mb-1">Hostels &amp; Rooms in Rajkot</h1>
-        <p class="rr-text-muted mb-0">42 verified listings across Rajkot</p>
+        <p class="rr-text-muted mb-0">{{ listings|length }} verified listings across Rajkot</p>
       </div>
      
     </div>
@@ -260,7 +262,10 @@
 
 {% for listing in listings %}
 
+
 <div class="col-md-6">
+    <a href="/listing/{{ listing.listing_id }}/details"
+   class="listing-link">
 
     <div class="rr-card h-100">
 
@@ -446,7 +451,7 @@
     </div>
 
 </div>
-
+</a>
 {% endfor %}
 
 </div>

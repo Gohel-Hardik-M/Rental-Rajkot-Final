@@ -17,7 +17,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shreeji Boys Hostel — Bhaktinagar — Rental Rajkot</title>
+<title>{{listing.property_name}} | {{listing.area}} | Rental Rajkot</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 
@@ -30,6 +30,9 @@
 <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+
+
+
 
 <nav class="navbar navbar-expand-lg rr-navbar sticky-top">
   <div class="container">
@@ -48,11 +51,12 @@
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav mx-auto gap-1 mt-3 mt-lg-0">
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link active" href="listings">Browse</a></li>
-        <li class="nav-item"><a class="nav-link" href="tenant-dashboard.html">Saved &amp; Inquiries</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/listings">Browse</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
       </ul>
       <div class="d-flex gap-2 mt-3 mt-lg-0">
-        <a href="tenant-login.html" class="btn btn-rr-primary"><i class="bi bi-person-circle"></i> Login</a>
+          <a href="/owner/register" class="btn btn-rr-outline"><i class="bi bi-house-add"></i> List Your Property</a>
+        <a href="/owner/login" class="btn btn-rr-primary"><i class="bi bi-person-circle"></i> Login</a>
       </div>
     </div>
   </div>
@@ -61,9 +65,9 @@
 <div class="container py-3">
   <nav aria-label="breadcrumb" class="breadcrumb-rr">
     <ol class="breadcrumb mb-0">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item"><a href="listings.html">Hostels</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Shreeji Boys Hostel</li>
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/listings">Hostels</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><a href="/listing/{{listing.listing_id}}/details">{{listing.property_name}}</a></li>
     </ol>
   </nav>
 </div>
@@ -74,31 +78,64 @@
 
       <div class="col-lg-7">
         <div class="position-relative mb-4">
-          <span class="rr-type-tag">Hostel</span>
-          <img src="https://placehold.co/760x520/24305E/FFFFFF?text=Shreeji+Boys+Hostel" class="img-fluid rounded-4 shadow-sm w-100" alt="Large placeholder image of Shreeji Boys Hostel in Bhaktinagar">
+          <span class="rr-type-tag">{{listing.property_type}}</span>
+          <img src="https://placehold.co/760x520/24305E/FFFFFF?text={{listing.property_name}}" class="img-fluid rounded-4 shadow-sm w-100" alt="Large placeholder image of Shreeji Boys Hostel in Bhaktinagar">
         </div>
         <div class="row g-2 mb-4">
-          <div class="col-3"><img src="https://placehold.co/200x140/34428A/FFFFFF?text=Room" class="img-fluid rounded-3 w-100" alt="Placeholder photo of a room inside the hostel"></div>
-          <div class="col-3"><img src="https://placehold.co/200x140/E8A33D/1F2430?text=Mess" class="img-fluid rounded-3 w-100" alt="Placeholder photo of the dining/mess area"></div>
-          <div class="col-3"><img src="https://placehold.co/200x140/3FA796/FFFFFF?text=Bath" class="img-fluid rounded-3 w-100" alt="Placeholder photo of the bathroom"></div>
-          <div class="col-3"><img src="https://placehold.co/200x140/24305E/FFFFFF?text=Common+Area" class="img-fluid rounded-3 w-100" alt="Placeholder photo of the common area"></div>
+
         </div>
 
-        <h1 class="rr-display fs-2 mb-1">Shreeji Boys Hostel</h1>
-        <p class="rr-text-muted mb-3"><i class="bi bi-geo-alt-fill"></i> Bhaktinagar, near Atmiya University, Rajkot</p>
+        <h1 class="rr-display fs-2 mb-1">{{listing.property_name}}</h1>
+        <p class="rr-text-muted mb-3"><i class="bi bi-geo-alt-fill"></i><b> {{listing.area}}, near {{listing.university}}, Rajkot</b></p>
 
         <h3 class="fs-5 mb-2">Description</h3>
-        <p class="rr-text-muted">A budget-friendly boys hostel five minutes from Atmiya University, with home-style meals, daily housekeeping, and a quiet study area. Popular with first-year students looking for a low-hassle move-in.</p>
+        <p class="rr-text-muted">{{listing.description}}</p>
 
         <h3 class="fs-5 mt-4 mb-3">Facilities</h3>
         <div class="d-flex flex-wrap gap-2 mb-4">
-          <span class="facility-pill"><i class="bi bi-wifi"></i> WiFi</span>
-          <span class="facility-pill"><i class="bi bi-egg-fried"></i> Food Included</span>
-          <span class="facility-pill"><i class="bi bi-p-circle"></i> Two-Wheeler Parking</span>
-          <span class="facility-pill"><i class="bi bi-camera-video"></i> CCTV</span>
-          <span class="facility-pill"><i class="bi bi-lightning-charge"></i> Power Backup</span>
-          <span class="facility-pill"><i class="bi bi-water"></i> Geyser</span>
-          <span class="facility-pill"><i class="bi bi-basket"></i> Laundry</span>
+       
+                {% for facility in listing.facilities %}
+
+                    <span class="facility-pill">
+
+                        {% if facility == "wifi" %}
+                            <i class="bi bi-wifi"></i>
+
+                        {% elif facility == "food" %}
+                            <i class="bi bi-egg-fried"></i>
+
+                        {% elif facility == "parking" %}
+                            <i class="bi bi-p-circle"></i>
+
+                        {% elif facility == "ac" %}
+                            <i class="bi bi-snow"></i>
+
+                        {% elif facility == "cctv" %}
+                            <i class="bi bi-camera-video"></i>
+
+                        {% elif facility == "power_backup" %}
+                            <i class="bi bi-lightning-charge"></i>
+
+                        {% elif facility == "geyser" %}
+                            <i class="bi bi-water"></i>
+
+                        {% elif facility == "laundry" %}
+                            <i class="bi bi-basket"></i>
+
+                        {% elif facility == "kitchen" %}
+                            <i class="bi bi-cup-hot"></i>
+
+                        {% elif facility == "housekeeping" %}
+                            <i class="bi bi-brush"></i>
+
+                        {% endif %}
+
+                        {{ facility|replace("_"," ")|title }}
+
+                    </span>
+
+                {% endfor %}
+
         </div>
 
         <h3 class="fs-5 mb-3">House Rules</h3>
@@ -106,17 +143,17 @@
           <div class="house-rule-item"><i class="bi bi-clock"></i> Entry curfew: 10:00 PM</div>
           <div class="house-rule-item"><i class="bi bi-person-x"></i> Visitors allowed in common area only, till 7:00 PM</div>
           <div class="house-rule-item"><i class="bi bi-cup-straw"></i> No smoking or alcohol on premises</div>
-          <div class="house-rule-item"><i class="bi bi-calendar-check"></i> Minimum stay: 3 months</div>
+          <div class="house-rule-item"><i class="bi bi-calendar-check"></i> Minimum stay: 2 months</div>
         </div>
 
         <h3 class="fs-5 mb-3">Price List</h3>
         <div class="rr-card-flat">
           <table class="table table-sm mb-0">
             <tbody>
-              <tr><td>Monthly Rent</td><td class="text-end fw-semibold">₹4,500</td></tr>
-              <tr><td>Security Deposit (refundable)</td><td class="text-end fw-semibold">₹9,000</td></tr>
-              <tr><td>Food Charges (included)</td><td class="text-end fw-semibold">Included</td></tr>
-              <tr><td>Electricity (as per usage)</td><td class="text-end fw-semibold">Extra</td></tr>
+              <tr><td>Monthly Rent</td><td class="text-end fw-semibold">₹{{listing.monthly_rent}}</td></tr>
+              <tr><td>Security Deposit (refundable)</td><td class="text-end fw-semibold">₹{{listing.security_deposit}}</td></tr>
+              <tr><td>Other Charges </td><td class="text-end fw-semibold">{{listing.other_charges}}</td></tr>
+              <!-- <tr><td>Electricity (as per usage)</td><td class="text-end fw-semibold">Extra</td></tr> -->
             </tbody>
           </table>
         </div>
@@ -126,23 +163,30 @@
       <div class="col-lg-5">
         <div class="rr-form-card sticky-summary">
           <div class="d-flex justify-content-between align-items-center mb-3">
-            <span class="fs-3 rr-price">₹4,500<span class="fs-6 rr-text-muted fw-normal">/month</span></span>
+            <span class="fs-3 rr-price">₹{{listing.monthly_rent}}<span class="fs-6 rr-text-muted fw-normal">/month</span></span>
             <span class="rr-verified-badge"><i class="bi bi-patch-check-fill"></i> Verified</span>
           </div>
-          <p class="rr-text-muted small mb-4">Security deposit: ₹9,000 (refundable) · Boys only · Single &amp; double sharing available</p>
+          <p class="rr-text-muted small mb-4">Security deposit: ₹{{listing.security_deposit}} (refundable) · {{listing.gender_preference}} · Single &amp; double sharing available</p>
 
           <div class="d-flex align-items-center gap-3 mb-4">
             <img src="https://placehold.co/56x56/24305E/FFFFFF?text=RP" class="rounded-circle" alt="Placeholder avatar for the property owner">
             <div>
-              <span class="d-block fw-semibold">Rajesh Prajapati</span>
+              <span class="d-block fw-semibold">{{listing.property_name}}</span>
               <span class="rr-text-muted small">Owner · Responds within 2 hours</span>
             </div>
           </div>
 
           <div class="d-grid gap-2 mb-4">
-            <a href="#" class="btn btn-rr-primary btn-rr-lg"><i class="bi bi-chat-dots"></i> Message Owner</a>
-            <a href="#" class="btn btn-rr-outline"><i class="bi bi-calendar-event"></i> Schedule a Visit</a>
-            <a href="#" class="btn btn-rr-accent"><i class="bi bi-bookmark-plus"></i> Save Listing</a>
+                      <a href="tel:{{ listing.owner_phone }}"
+                                     class="btn btn-primary btn-sm">
+                                                      <i class="bi bi-telephone-fill"></i> Call
+                      </a>
+
+                      <a href="https://wa.me/91{{ listing.owner_phone }}"
+                                       target="_blank"
+                                       class="btn btn-success btn-sm">
+                                                             <i class="bi bi-whatsapp"></i> WhatsApp
+                      </a>
           </div>
 
           <h3 class="fs-6 fw-bold mb-2">Location</h3>

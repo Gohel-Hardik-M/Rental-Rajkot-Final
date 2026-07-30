@@ -48,6 +48,16 @@ def about():
 
 
 
+
+
+
+
+
+
+
+
+
+
 @router.get("/listing/{listing_id}/whatsapp")
 def whatsapp_click(
         listing_id: int
@@ -336,6 +346,24 @@ def tenant_dashboard(request : Request):
 
     return FileResponse("templates/tenant-dashboard.html")
 
+
+
+
+@router.get("/listing/{listing_id}/details")
+def get_listing_details(request: Request, listing_id: int):
+
+    listing = listing_service.get_listing_details_by_id(listing_id)
+
+    if listing is None:
+        return RedirectResponse(url='/listings',status_code=302)
+
+    return templates.TemplateResponse(
+       name= "listing-details.html",
+       context= {
+            "request": request,
+            "listing": listing
+        }
+    )
 
 @router.get("/listings")
 def listings(request: Request,
