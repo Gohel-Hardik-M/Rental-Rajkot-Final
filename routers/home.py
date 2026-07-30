@@ -359,6 +359,7 @@ def get_listing_details(request: Request, listing_id: int):
 
     return templates.TemplateResponse(
        name= "listing-details.html",
+       request= request,
        context= {
             "request": request,
             "listing": listing
