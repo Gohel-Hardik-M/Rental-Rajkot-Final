@@ -42,6 +42,11 @@ def robots():
 def sitemap():
     return FileResponse("static/sitemap.xml")
 
+@router.get("/sitemap2.xml", include_in_schema=False)
+def sitemap():
+    return FileResponse("static/sitemap.xml")
+
+
 @router.get("/about")
 def about():
     return FileResponse("templates/about.html")
