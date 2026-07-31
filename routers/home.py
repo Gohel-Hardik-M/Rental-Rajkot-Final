@@ -42,9 +42,12 @@ def robots():
 def sitemap():
     return FileResponse("static/sitemap.xml")
 
+from fastapi.responses import Response
+
 @router.get("/sitemap2.xml", include_in_schema=False)
-def sitemap():
-    return FileResponse("static/sitemap.xml")
+def sitemap2():
+    with open("static/sitemap2.xml", "r") as f:
+        return Response(content=f.read(), media_type="application/xml")
 
 
 @router.get("/about")
