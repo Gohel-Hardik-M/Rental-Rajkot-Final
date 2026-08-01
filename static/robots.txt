@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://rental-rajkot-final.onrender.com/sitemap.xml
-Sitemap: https://rental-rajkot-final.onrender.com/sitemap2.xml
