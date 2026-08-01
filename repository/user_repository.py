@@ -43,6 +43,7 @@ class UserRepository:
             return True
 
         except Exception as e:
+            self.connection.rollback()
             return False
             print(e)
 
