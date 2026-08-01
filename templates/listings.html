@@ -404,20 +404,31 @@
                 <div>
 
                     <span class="fs-5 rr-price">
-
-                     ₹  {{ listing.monthly_rent}}  
+                     Monthly Rent :
+                    {% if listing.monthly_rent == 0 %}
+                            Contact Owner
+                    {% else %}
+                        ₹ {{ listing.monthly_rent }}
+                    {% endif %}
 
                     </span>
 
                     <span class="rr-text-muted small">
 
-                        /month
+                    {% if listing.monthly_rent != 0 %}
+                          /month
+                    {% endif %}
 
                     </span>
 
                     <span class="d-block rr-text-muted small">
 
-                        Deposit : ₹  {{ listing.security_deposit }}
+                                  Deposit :
+            {% if listing.security_deposit == 0 %}
+                Not Mentioned
+            {% else %}
+                ₹ {{ listing.security_deposit }}
+            {% endif %}
 
                     </span>
 
