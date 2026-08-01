@@ -32,7 +32,6 @@ def index():
 
 
 
-from fastapi.responses import FileResponse
 
 @router.get("/robots.txt", include_in_schema=False)
 def robots():
