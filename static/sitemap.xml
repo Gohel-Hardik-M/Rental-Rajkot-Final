@@ -2,51 +2,40 @@
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-    <loc>https://rental-rajkot-final.onrender.com/</loc>
-</url>
-
-<url>
-    <loc>https://rental-rajkot-final.onrender.com/listings</loc>
-</url>
-
-<url>
-    <loc>https://rental-rajkot-final.onrender.com/about</loc>
-</url>
-
-
-
-<url>
-    <loc>https://rental-rajkot-final.onrender.com/listing/11/details</loc>
-</url>
-
     <url>
-
-        <loc>https://rental-rajkot-final.onrender.com/listing/10/details</loc>
+        <loc>https://rentalrajkot.com/</loc>
     </url>
 
+    <url>
+        <loc>https://rentalrajkot.com/listings</loc>
+    </url>
 
+    <url>
+        <loc>https://rentalrajkot.com/about</loc>
+    </url>
 
+    <url>
+        <loc>https://rentalrajkot.com/listing/11/details</loc>
+    </url>
 
-    
-<url>
-    <loc>https://rental-rajkot-final.onrender.com/listing/9/details</loc>
-</url>
+    <url>
+        <loc>https://rentalrajkot.com/listing/10/details</loc>
+    </url>
 
-    
-<url>
-    <loc>https://rental-rajkot-final.onrender.com/listing/7/details</loc>
-</url>
+    <url>
+        <loc>https://rentalrajkot.com/listing/9/details</loc>
+    </url>
 
+    <url>
+        <loc>https://rentalrajkot.com/listing/7/details</loc>
+    </url>
 
-    
-<url>
-    <loc>https://rental-rajkot-final.onrender.com/listing/6/details</loc>
-</url>
-    
-<url>
-    <loc>https://rental-rajkot-final.onrender.com/listing/5/details</loc>
-</url>
+    <url>
+        <loc>https://rentalrajkot.com/listing/6/details</loc>
+    </url>
 
+    <url>
+        <loc>https://rentalrajkot.com/listing/5/details</loc>
+    </url>
 
 </urlset>
