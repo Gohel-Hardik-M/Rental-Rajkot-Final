@@ -79,7 +79,12 @@
       <div class="col-lg-7">
         <div class="position-relative mb-4">
           <span class="rr-type-tag">{{listing.property_type}}</span>
+          {%   if listing.gender_preference|lower == 'girls only'  %}
+                    <img src="https://placehold.co/760x520/F9A8D4/FFFFFF?text={{listing.property_name}}" class="img-fluid rounded-4 shadow-sm w-100" alt="Large placeholder image of Shreeji Boys Hostel in Bhaktinagar">
+
+          {% else %}
           <img src="https://placehold.co/760x520/24305E/FFFFFF?text={{listing.property_name}}" class="img-fluid rounded-4 shadow-sm w-100" alt="Large placeholder image of Shreeji Boys Hostel in Bhaktinagar">
+          {% endif %}
         </div>
         <div class="row g-2 mb-4">
 
