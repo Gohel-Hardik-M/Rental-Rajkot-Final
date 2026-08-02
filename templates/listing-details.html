@@ -150,8 +150,22 @@
         <div class="rr-card-flat">
           <table class="table table-sm mb-0">
             <tbody>
-              <tr><td>Monthly Rent</td><td class="text-end fw-semibold">₹{{listing.monthly_rent}}</td></tr>
-              <tr><td>Security Deposit (refundable)</td><td class="text-end fw-semibold">₹{{listing.security_deposit}}</td></tr>
+              <tr><td>Monthly Rent</td><td class="text-end fw-semibold">
+                  {% if listing.monthly_rent == 0 %}
+                            Contact Owner
+                    {% else %}
+                        ₹ {{ listing.monthly_rent }} 
+                    {% endif %}
+                  </td>
+                </tr>
+              <tr><td>Security Deposit (refundable)</td><td class="text-end fw-semibold">
+              {% if listing.security_deposit == 0 %}
+                Not Mentioned
+            {% else %}
+                ₹ {{ listing.security_deposit }}
+            {% endif %}
+
+                  </td></tr>
               <tr><td>Other Charges </td><td class="text-end fw-semibold">{{listing.other_charges}}</td></tr>
               <!-- <tr><td>Electricity (as per usage)</td><td class="text-end fw-semibold">Extra</td></tr> -->
             </tbody>
@@ -163,10 +177,48 @@
       <div class="col-lg-5">
         <div class="rr-form-card sticky-summary">
           <div class="d-flex justify-content-between align-items-center mb-3">
-            <span class="fs-3 rr-price">₹{{listing.monthly_rent}}<span class="fs-6 rr-text-muted fw-normal">/month</span></span>
+            <span class="fs-3 rr-price">
+
+                    {% if listing.monthly_rent == 0 %}
+                            Contact Owner
+                    {% else %}
+                        ₹ {{ listing.monthly_rent }}
+                    {% endif %}
+
+                    </span>
+
+                    <span class="fs-6 rr-text-muted fw-normal">
+
+                    {% if listing.monthly_rent != 0 %}
+                          /month
+                    {% endif %}
+
+                    </span>
+              
+              
+              </span>
+
             <span class="rr-verified-badge"><i class="bi bi-patch-check-fill"></i> Verified</span>
           </div>
-          <p class="rr-text-muted small mb-4">Security deposit: ₹{{listing.security_deposit}} (refundable) · {{listing.gender_preference}} · Single &amp; double sharing available</p>
+          <p class="rr-text-muted small mb-4">Security deposit: 
+             {% if listing.security_deposit == 0 %}
+                Not Mentioned
+            {% else %}
+                ₹ {{ listing.security_deposit }}  (refundable)
+            {% endif %}  · <b>
+    <i style="
+        color: {% if listing.gender_preference|lower == 'girls only' %}
+                    #ec4899
+               {% elif listing.gender_preference|lower == 'boys only' %}
+                    #16a34a
+               {% else %}
+                    #2563eb
+               {% endif %};
+        font-weight:600;
+    ">
+        {{ listing.gender_preference }}
+    </i>
+</b>· Single &amp; double sharing available</p>
 
           <div class="d-flex align-items-center gap-3 mb-4">
             <img src="https://placehold.co/56x56/24305E/FFFFFF?text=RP" class="rounded-circle" alt="Placeholder avatar for the property owner">
