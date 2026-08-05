@@ -31,6 +31,10 @@ def index():
 
 
 
+@router.get("/ads.txt")
+def ads_txt():
+    return FileResponse("static/ads.txt", media_type="text/plain")
+
 
 
 @router.get("/robots.txt", include_in_schema=False)
@@ -478,6 +482,8 @@ def boys_pg_rajkot(request: Request,
             "universities":universities,
         }
     )
+
+
 
 
 
