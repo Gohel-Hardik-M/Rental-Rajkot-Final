@@ -408,6 +408,106 @@ def listings(request: Request,
 
 
 
+@router.get("/girls-hostels-in-rajkot")
+def girls_hostels_rajkot(request: Request,
+                 property_type: str = "",
+                 area: str = "",
+                 university: str = ""):
+
+    listings = listing_service.get_girls_hostels(property_type,area,university)
+    areas = listing_service.get_all_areas()
+
+    universities = listing_service.get_all_universities() 
+
+
+    return templates.TemplateResponse(
+        request=request,
+        name="girls_hostel.html",
+        context={
+            "listings": listings,
+            "areas" : areas,
+            "universities":universities,
+        }
+    )
+
+
+
+
+
+@router.get("/boys-hostels-in-rajkot")
+def boys_hostels_rajkot(request: Request,
+                 property_type: str = "",
+                 area: str = "",
+                 university: str = ""):
+
+    listings = listing_service.get_boys_hostels(property_type,area,university)
+    areas = listing_service.get_all_areas()
+
+    universities = listing_service.get_all_universities() 
+
+
+    return templates.TemplateResponse(
+        request=request,
+        name="boys_hostel.html",
+        context={
+            "listings": listings,
+            "areas" : areas,
+            "universities":universities,
+        }
+    )
+
+
+
+@router.get("/boys-pg-in-rajkot")
+def boys_pg_rajkot(request: Request,
+                 area: str = "",
+                 university: str = ""):
+
+    listings = listing_service.get_boys_pg(area,university)
+    areas = listing_service.get_all_areas()
+
+    universities = listing_service.get_all_universities() 
+
+
+    return templates.TemplateResponse(
+        request=request,
+        name="boys_pg.html",
+        context={
+            "listings": listings,
+            "areas" : areas,
+            "universities":universities,
+        }
+    )
+
+
+
+@router.get("/rooms-for-rent-in-rajkot")
+def room_in_rajkot(request: Request,
+                 area: str = "",
+                 university: str = "",
+                 gender: str = ""):
+
+    listings = listing_service.get_rooms(area,university,gender)
+    areas = listing_service.get_all_areas()
+
+    universities = listing_service.get_all_universities() 
+
+
+    return templates.TemplateResponse(
+        request=request,
+        name="room.html",
+        context={
+            "listings": listings,
+            "areas" : areas,
+            "universities":universities,
+        }
+    )
+
+
+
+
+
+
 
 @router.get("/logout")
 def logout(request: Request):
