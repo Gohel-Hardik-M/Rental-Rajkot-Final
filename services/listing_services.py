@@ -252,6 +252,13 @@ class ListingService:
 
 
 
+
+    def get_girls_hostels_near_150_feet_ring_road(self,property_type=None,area=None,university=None):
+
+       return listingrepo.filter_listings(property_type,area,university,"Girls Only")
+
+
+
     def get_all_areas(self):
 
       return listingrepo.get_all_areas()

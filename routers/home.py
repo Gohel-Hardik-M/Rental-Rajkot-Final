@@ -37,6 +37,76 @@ def ads_txt():
 
 
 
+
+@router.get("/girls-hostels-near-150-feet-ring-road-rajkot")
+def girls_hostels_near_150_feet_ring_road(request: Request,
+                 property_type: str = "",
+                 area: str = "",
+                 university: str = ""):
+
+    listings = listing_service.get_girls_hostels_near_150_feet_ring_road(property_type,area,university)
+    areas = listing_service.get_all_areas()
+    universities = listing_service.get_all_universities()
+    filter_selection_link= "/girls-hostels-near-150-feet-ring-road-rajkot"
+
+    title ="Girls Hostels Near 150 Feet Ring Road"
+
+    canonical = (
+            "https://rentalrajkot.com/"
+            "girls-hostels-near-150-feet-ring-road-rajkot"
+        )
+    
+    seo_html = f"""
+        <meta name="description"
+              content="Find girls hostels and PGs near 150 Feet Ring Road, Rajkot. Compare affordable rooms, food, WiFi, AC, security and facilities near Atmiya University and surrounding areas.">
+    
+        <meta name="keywords"
+              content="Girls Hostel Near 150 Feet Ring Road Rajkot,
+              Girls PG Near 150 Feet Ring Road Rajkot,
+              Girls Hostel Rajkot,
+              Girls PG Rajkot,
+              Ladies Hostel Rajkot,
+              Girls Hostel Near Atmiya University,
+              Girls PG Near Atmiya University,
+              Student Hostel For Girls Rajkot,
+              Affordable Girls PG Rajkot">
+    
+        <meta name="robots"
+              content="index,follow">
+    
+        <link rel="canonical"
+              href="{canonical}">
+    
+        <meta property="og:title"
+              content="Girls Hostels Near 150 Feet Ring Road Rajkot | Rental Rajkot">
+    
+        <meta property="og:description"
+              content="Find girls hostels and PGs near 150 Feet Ring Road, Rajkot. Compare rooms, rent, food, WiFi, AC and other facilities.">
+    
+        <meta property="og:url"
+              content="{canonical}">
+    
+        <meta property="og:type"
+              content="website">
+    
+        <meta property="og:image"
+              content="https://rentalrajkot.com/static/images/girls_hostel.svg">
+        """
+    
+
+    return templates.TemplateResponse(
+        "listings_all.html",
+        {
+            "request": request,
+            "title": title,
+            "listings": listings,
+            "seo_html": seo_html,
+             "areas" : areas,
+             "universities":universities,
+             "filter_selection_link":filter_selection_link
+        }
+    )
+
 @router.get("/robots.txt", include_in_schema=False)
 def robots():
     return FileResponse("static/robots.txt")
