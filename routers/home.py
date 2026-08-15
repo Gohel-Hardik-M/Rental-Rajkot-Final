@@ -107,6 +107,88 @@ def girls_hostels_near_150_feet_ring_road(request: Request,
         }
     )
 
+
+
+
+@router.get("/boys-hostels-near-university-road-rajkot")
+def boys_hostels_near_university_road(
+        request: Request,
+        property_type: str = "",
+        area: str = "",
+        university: str = ""):
+
+    listings = listing_service.get_boys_hostels_near_university_road(
+        property_type,
+        area,
+        university
+    )
+
+    areas = listing_service.get_all_areas()
+    universities = listing_service.get_all_universities()
+
+    filter_selection_link = "/boys-hostels-near-university-road-rajkot"
+
+    title = "Boys Hostels Near University Road Rajkot"
+
+    canonical = (
+        "https://rentalrajkot.com/"
+        "boys-hostels-near-university-road-rajkot"
+    )
+
+    seo_html = f"""
+        <meta name="description"
+              content="Find boys hostels and PGs near University Road, Rajkot. Compare affordable rooms, food, WiFi, AC, security and other facilities near Atmiya University, Saurashtra University and surrounding areas.">
+
+        <meta name="keywords"
+              content="Boys Hostel Near University Road Rajkot,
+              Boys PG Near University Road Rajkot,
+              Boys Hostel Rajkot,
+              Boys PG Rajkot,
+              Mens Hostel Rajkot,
+              Boys Hostel Near Atmiya University,
+              Boys PG Near Atmiya University,
+              Boys Hostel Near Saurashtra University,
+              Student Hostel For Boys Rajkot,
+              Affordable Boys PG Rajkot">
+
+        <meta name="robots"
+              content="index,follow">
+
+        <link rel="canonical"
+              href="{canonical}">
+
+        <meta property="og:title"
+              content="Boys Hostels Near University Road Rajkot | Rental Rajkot">
+
+        <meta property="og:description"
+              content="Find boys hostels and PGs near University Road, Rajkot. Compare rooms, rent, food, WiFi, AC, security and other facilities.">
+
+        <meta property="og:url"
+              content="{canonical}">
+
+        <meta property="og:type"
+              content="website">
+
+        <meta property="og:image"
+              content="https://rentalrajkot.com/static/images/boys_hostel.svg">
+    """
+
+    return templates.TemplateResponse(
+        "listings_all.html",
+        {
+            "request": request,
+            "title": title,
+            "listings": listings,
+            "seo_html": seo_html,
+            "areas": areas,
+            "universities": universities,
+            "filter_selection_link": filter_selection_link
+        }
+    )
+
+
+
+
 @router.get("/robots.txt", include_in_schema=False)
 def robots():
     return FileResponse("static/robots.txt")
