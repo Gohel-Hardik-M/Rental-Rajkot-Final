@@ -300,8 +300,24 @@ class ListingService:
     
            return listingrepo.filter_listings(property_type,area,university,"Girls Only")
     
+ 
+    def get_boys_hostel_near_darshan_university(self,property_type=None,area=None,university=None):
     
+           return listingrepo.filter_listings(property_type,area,university,"Boys Only")
+
+
+    def get_boys_pg_near_darshan_university(self,property_type=None,area=None,university=None):
     
+           return listingrepo.filter_listings(property_type,area,university,"Boys Only")
+   
+    def get_girls_hostels_near_darshan_university(self,property_type=None,area=None,university=None):
+    
+           return listingrepo.filter_listings(property_type,area,university,"Girls Only")
+
+    def get_girls_pg_near_darshan_university(self,property_type=None,area=None,university=None):
+    
+           return listingrepo.filter_listings(property_type,area,university,"Girls Only")
+      
     
     
     
