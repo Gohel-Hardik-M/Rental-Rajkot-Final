@@ -344,6 +344,488 @@ def girls_hostels_near_marwadi_university(
     )
 
 
+@router.get("/girls-pg-near-marwadi-university-rajkot")
+def girls_pg_near_marwadi_university(
+        request: Request,
+        property_type: str = "",
+        area: str = "",
+        university: str = ""):
+
+    listings = listing_service.get_girls_pg_near_marwadi_university(
+        property_type,
+        area,
+        university
+    )
+
+    areas = listing_service.get_all_areas()
+    universities = listing_service.get_all_universities()
+
+    filter_selection_link = "/girls-pg-near-marwadi-university-rajkot"
+
+    title = "Girls PG Near Marwadi University Rajkot"
+
+    canonical = (
+        "https://rentalrajkot.com/"
+        "girls-pg-near-marwadi-university-rajkot"
+    )
+
+    seo_html = f"""
+        <meta name="description"
+              content="Find girls PGs near Marwadi University, Rajkot. Compare affordable girls PG rooms, rent, food, WiFi, AC, security, parking and other facilities for students near Marwadi University.">
+
+        <meta name="keywords"
+              content="Girls PG Near Marwadi University Rajkot,
+              Girls Paying Guest Near Marwadi University,
+              Girls PG Marwadi University,
+              Female PG Near Marwadi University Rajkot,
+              Girls Paying Guest Rajkot,
+              Girls PG Rajkot,
+              Girls Hostel Near Marwadi University,
+              Girls Hostel Rajkot,
+              Ladies PG Rajkot,
+              Student PG For Girls Rajkot,
+              Affordable Girls PG Rajkot,
+              PG For Female Students Rajkot">
+
+        <meta name="robots"
+              content="index,follow">
+
+        <link rel="canonical"
+              href="{canonical}">
+
+        <meta property="og:title"
+              content="Girls PG Near Marwadi University Rajkot | Rental Rajkot">
+
+        <meta property="og:description"
+              content="Find girls PGs near Marwadi University, Rajkot. Compare rooms, rent, food, WiFi, AC, security and other facilities for students.">
+
+        <meta property="og:url"
+              content="{canonical}">
+
+        <meta property="og:type"
+              content="website">
+
+        <meta property="og:image"
+              content="https://rentalrajkot.com/static/images/girls_hostel.svg">
+    """
+
+    return templates.TemplateResponse(
+        "listings_all.html",
+        {
+            "request": request,
+            "title": title,
+            "listings": listings,
+            "seo_html": seo_html,
+            "areas": areas,
+            "universities": universities,
+            "filter_selection_link": filter_selection_link
+        }
+    )
+
+
+
+
+
+@router.get("/boys-pg-near-marwadi-university-rajkot")
+def boys_pg_near_marwadi_university(
+        request: Request,
+        property_type: str = "",
+        area: str = "",
+        university: str = ""):
+
+    listings = listing_service.get_boys_pg_near_marwadi_university(
+        property_type,
+        area,
+        university
+    )
+
+    areas = listing_service.get_all_areas()
+    universities = listing_service.get_all_universities()
+
+    filter_selection_link = "/boys-pg-near-marwadi-university-rajkot"
+
+    title = "Boys PG Near Marwadi University Rajkot"
+
+    canonical = (
+        "https://rentalrajkot.com/"
+        "boys-pg-near-marwadi-university-rajkot"
+    )
+
+    seo_html = f"""
+        <meta name="description"
+              content="Find boys PGs near Marwadi University, Rajkot. Compare affordable boys PG rooms, rent, food, WiFi, AC, security, parking and other facilities for students near Marwadi University.">
+
+        <meta name="keywords"
+              content="Boys PG Near Marwadi University Rajkot,
+              Boys Paying Guest Near Marwadi University,
+              Boys PG Marwadi University,
+              Male PG Near Marwadi University Rajkot,
+              Boys Paying Guest Rajkot,
+              Boys PG Rajkot,
+              Boys Hostel Near Marwadi University,
+              Boys Hostel Rajkot,
+              Mens PG Rajkot,
+              Student PG For Boys Rajkot,
+              Affordable Boys PG Rajkot,
+              PG For Male Students Rajkot">
+
+        <meta name="robots"
+              content="index,follow">
+
+        <link rel="canonical"
+              href="{canonical}">
+
+        <meta property="og:title"
+              content="Boys PG Near Marwadi University Rajkot | Rental Rajkot">
+
+        <meta property="og:description"
+              content="Find boys PGs near Marwadi University, Rajkot. Compare rooms, rent, food, WiFi, AC, security and other facilities for students.">
+
+        <meta property="og:url"
+              content="{canonical}">
+
+        <meta property="og:type"
+              content="website">
+
+        <meta property="og:image"
+              content="https://rentalrajkot.com/static/images/boys_hostel.svg">
+    """
+
+    return templates.TemplateResponse(
+        "listings_all.html",
+        {
+            "request": request,
+            "title": title,
+            "listings": listings,
+            "seo_html": seo_html,
+            "areas": areas,
+            "universities": universities,
+            "filter_selection_link": filter_selection_link
+        }
+    )
+
+
+
+
+@router.get("/boys-hostels-near-atmiya-university-rajkot")
+def boys_hostels_near_atmiya_university(
+        request: Request,
+        property_type: str = "",
+        area: str = "",
+        university: str = ""):
+
+    listings = listing_service.get_boys_hostel_near_atmiya_university(
+        property_type,
+        area,
+        university
+    )
+
+    areas = listing_service.get_all_areas()
+    universities = listing_service.get_all_universities()
+
+    filter_selection_link = "/boys-hostels-near-atmiya-university-rajkot"
+
+    title = "Boys Hostels Near Atmiya University Rajkot"
+
+    canonical = (
+        "https://rentalrajkot.com/"
+        "boys-hostels-near-atmiya-university-rajkot"
+    )
+
+    seo_html = f"""
+        <meta name="description"
+              content="Find boys hostels and PGs near Atmiya University, Rajkot. Compare affordable rooms, rent, food, WiFi, AC, security, parking and other facilities for students near Atmiya University.">
+
+        <meta name="keywords"
+              content="Boys Hostel Near Atmiya University Rajkot,
+              Boys PG Near Atmiya University Rajkot,
+              Boys Hostel Atmiya University,
+              Boys PG Atmiya University,
+              Hostel Near Atmiya University Rajkot,
+              PG Near Atmiya University Rajkot,
+              Boys Hostel Rajkot,
+              Boys PG Rajkot,
+              Mens Hostel Rajkot,
+              Student Hostel Near Atmiya University,
+              Affordable Boys PG Rajkot">
+
+        <meta name="robots"
+              content="index,follow">
+
+        <link rel="canonical"
+              href="{canonical}">
+
+        <meta property="og:title"
+              content="Boys Hostels Near Atmiya University Rajkot | Rental Rajkot">
+
+        <meta property="og:description"
+              content="Find boys hostels and PGs near Atmiya University, Rajkot. Compare rooms, rent, food, WiFi, AC, security and other facilities.">
+
+        <meta property="og:url"
+              content="{canonical}">
+
+        <meta property="og:type"
+              content="website">
+
+        <meta property="og:image"
+              content="https://rentalrajkot.com/static/images/boys_hostel.svg">
+    """
+
+    return templates.TemplateResponse(
+        "listings_all.html",
+        {
+            "request": request,
+            "title": title,
+            "listings": listings,
+            "seo_html": seo_html,
+            "areas": areas,
+            "universities": universities,
+            "filter_selection_link": filter_selection_link
+        }
+    )
+
+
+
+@router.get("/boys-pg-near-atmiya-university-rajkot")
+def boys_pg_near_atmiya_university(
+        request: Request,
+        property_type: str = "",
+        area: str = "",
+        university: str = ""):
+
+    listings = listing_service.get_boys_pg_near_atmiya_university(
+        property_type,
+        area,
+        university
+    )
+
+    areas = listing_service.get_all_areas()
+    universities = listing_service.get_all_universities()
+
+    filter_selection_link = "/boys-pg-near-atmiya-university-rajkot"
+
+    title = "Boys PG Near Atmiya University Rajkot"
+
+    canonical = (
+        "https://rentalrajkot.com/"
+        "boys-pg-near-atmiya-university-rajkot"
+    )
+
+    seo_html = f"""
+        <meta name="description"
+              content="Find boys PGs near Atmiya University, Rajkot. Compare affordable boys PG rooms, rent, food, WiFi, AC, security, parking and other facilities for students near Atmiya University.">
+
+        <meta name="keywords"
+              content="Boys PG Near Atmiya University Rajkot,
+              Boys Paying Guest Near Atmiya University,
+              Boys PG Atmiya University,
+              Male PG Near Atmiya University Rajkot,
+              Boys Paying Guest Rajkot,
+              Boys PG Rajkot,
+              Boys Hostel Near Atmiya University,
+              Boys Hostel Rajkot,
+              Mens PG Rajkot,
+              Student PG For Boys Rajkot,
+              Affordable Boys PG Rajkot,
+              PG For Male Students Rajkot">
+
+        <meta name="robots"
+              content="index,follow">
+
+        <link rel="canonical"
+              href="{canonical}">
+
+        <meta property="og:title"
+              content="Boys PG Near Atmiya University Rajkot | Rental Rajkot">
+
+        <meta property="og:description"
+              content="Find boys PGs near Atmiya University, Rajkot. Compare rooms, rent, food, WiFi, AC, security and other facilities for students.">
+
+        <meta property="og:url"
+              content="{canonical}">
+
+        <meta property="og:type"
+              content="website">
+
+        <meta property="og:image"
+              content="https://rentalrajkot.com/static/images/boys_hostel.svg">
+    """
+
+    return templates.TemplateResponse(
+        "listings_all.html",
+        {
+            "request": request,
+            "title": title,
+            "listings": listings,
+            "seo_html": seo_html,
+            "areas": areas,
+            "universities": universities,
+            "filter_selection_link": filter_selection_link
+        }
+    )
+
+
+
+
+
+@router.get("/girls-hostels-near-atmiya-university-rajkot")
+def girls_hostels_near_atmiya_university(
+        request: Request,
+        property_type: str = "",
+        area: str = "",
+        university: str = ""):
+
+    listings = listing_service.get_girls_hostels_near_atmiya_university(
+        property_type,
+        area,
+        university
+    )
+
+    areas = listing_service.get_all_areas()
+    universities = listing_service.get_all_universities()
+
+    filter_selection_link = "/girls-hostels-near-atmiya-university-rajkot"
+
+    title = "Girls Hostels Near Atmiya University Rajkot"
+
+    canonical = (
+        "https://rentalrajkot.com/"
+        "girls-hostels-near-atmiya-university-rajkot"
+    )
+
+    seo_html = f"""
+        <meta name="description"
+              content="Find girls hostels and PGs near Atmiya University, Rajkot. Compare affordable rooms, rent, food, WiFi, AC, security, parking and other facilities for students near Atmiya University.">
+
+        <meta name="keywords"
+              content="Girls Hostel Near Atmiya University Rajkot,
+              Girls PG Near Atmiya University Rajkot,
+              Girls Hostel Atmiya University,
+              Girls PG Atmiya University,
+              Hostel Near Atmiya University Rajkot,
+              PG Near Atmiya University Rajkot,
+              Girls Hostel Rajkot,
+              Girls PG Rajkot,
+              Ladies Hostel Rajkot,
+              Student Hostel Near Atmiya University,
+              Affordable Girls PG Rajkot">
+
+        <meta name="robots"
+              content="index,follow">
+
+        <link rel="canonical"
+              href="{canonical}">
+
+        <meta property="og:title"
+              content="Girls Hostels Near Atmiya University Rajkot | Rental Rajkot">
+
+        <meta property="og:description"
+              content="Find girls hostels and PGs near Atmiya University, Rajkot. Compare rooms, rent, food, WiFi, AC, security and other facilities.">
+
+        <meta property="og:url"
+              content="{canonical}">
+
+        <meta property="og:type"
+              content="website">
+
+        <meta property="og:image"
+              content="https://rentalrajkot.com/static/images/girls_hostel.svg">
+    """
+
+    return templates.TemplateResponse(
+        "listings_all.html",
+        {
+            "request": request,
+            "title": title,
+            "listings": listings,
+            "seo_html": seo_html,
+            "areas": areas,
+            "universities": universities,
+            "filter_selection_link": filter_selection_link
+        }
+    )
+
+
+@router.get("/girls-pg-near-atmiya-university-rajkot")
+def girls_pg_near_atmiya_university(
+        request: Request,
+        property_type: str = "",
+        area: str = "",
+        university: str = ""):
+
+    listings = listing_service.get_girls_pg_near_atmiya_university(
+        property_type,
+        area,
+        university
+    )
+
+    areas = listing_service.get_all_areas()
+    universities = listing_service.get_all_universities()
+
+    filter_selection_link = "/girls-pg-near-atmiya-university-rajkot"
+
+    title = "Girls PG Near Atmiya University Rajkot"
+
+    canonical = (
+        "https://rentalrajkot.com/"
+        "girls-pg-near-atmiya-university-rajkot"
+    )
+
+    seo_html = f"""
+        <meta name="description"
+              content="Find girls PGs near Atmiya University, Rajkot. Compare affordable girls PG rooms, rent, food, WiFi, AC, security, parking and other facilities for students near Atmiya University.">
+
+        <meta name="keywords"
+              content="Girls PG Near Atmiya University Rajkot,
+              Girls Paying Guest Near Atmiya University,
+              Girls PG Atmiya University,
+              Female PG Near Atmiya University Rajkot,
+              Girls Paying Guest Rajkot,
+              Girls PG Rajkot,
+              Girls Hostel Near Atmiya University,
+              Girls Hostel Rajkot,
+              Ladies PG Rajkot,
+              Student PG For Girls Rajkot,
+              Affordable Girls PG Rajkot,
+              PG For Female Students Rajkot">
+
+        <meta name="robots"
+              content="index,follow">
+
+        <link rel="canonical"
+              href="{canonical}">
+
+        <meta property="og:title"
+              content="Girls PG Near Atmiya University Rajkot | Rental Rajkot">
+
+        <meta property="og:description"
+              content="Find girls PGs near Atmiya University, Rajkot. Compare rooms, rent, food, WiFi, AC, security and other facilities for students.">
+
+        <meta property="og:url"
+              content="{canonical}">
+
+        <meta property="og:type"
+              content="website">
+
+        <meta property="og:image"
+              content="https://rentalrajkot.com/static/images/girls_hostel.svg">
+    """
+
+    return templates.TemplateResponse(
+        "listings_all.html",
+        {
+            "request": request,
+            "title": title,
+            "listings": listings,
+            "seo_html": seo_html,
+            "areas": areas,
+            "universities": universities,
+            "filter_selection_link": filter_selection_link
+        }
+    )
+
+
+
 @router.get("/robots.txt", include_in_schema=False)
 def robots():
     return FileResponse("static/robots.txt")
