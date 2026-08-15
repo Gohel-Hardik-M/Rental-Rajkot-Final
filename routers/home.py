@@ -189,6 +189,161 @@ def boys_hostels_near_university_road(
 
 
 
+@router.get("/boys-hostels-near-marwadi-university-rajkot")
+def boys_hostels_near_marwadi_university(
+        request: Request,
+        property_type: str = "",
+        area: str = "",
+        university: str = ""):
+
+    listings = listing_service.get_boys_hostels_near_marwadi_university(
+        property_type,
+        area,
+        university
+    )
+
+    areas = listing_service.get_all_areas()
+    universities = listing_service.get_all_universities()
+
+    filter_selection_link = "/boys-hostels-near-marwadi-university-rajkot"
+
+    title = "Boys Hostels Near Marwadi University Rajkot"
+
+    canonical = (
+        "https://rentalrajkot.com/"
+        "boys-hostels-near-marwadi-university-rajkot"
+    )
+
+    seo_html = f"""
+        <meta name="description"
+              content="Find boys hostels and PGs near Marwadi University, Rajkot. Compare affordable rooms, food, WiFi, AC, security, parking and other facilities for students near Marwadi University.">
+
+        <meta name="keywords"
+              content="Boys Hostel Near Marwadi University Rajkot,
+              Boys PG Near Marwadi University Rajkot,
+              Boys Hostel Marwadi University,
+              Boys PG Marwadi University,
+              Hostel Near Marwadi University Rajkot,
+              PG Near Marwadi University Rajkot,
+              Boys Hostel Rajkot,
+              Boys PG Rajkot,
+              Mens Hostel Rajkot,
+              Student Hostel Near Marwadi University,
+              Affordable Boys PG Rajkot">
+
+        <meta name="robots"
+              content="index,follow">
+
+        <link rel="canonical"
+              href="{canonical}">
+
+        <meta property="og:title"
+              content="Boys Hostels Near Marwadi University Rajkot | Rental Rajkot">
+
+        <meta property="og:description"
+              content="Find boys hostels and PGs near Marwadi University, Rajkot. Compare rooms, rent, food, WiFi, AC, security and other facilities.">
+
+        <meta property="og:url"
+              content="{canonical}">
+
+        <meta property="og:type"
+              content="website">
+
+        <meta property="og:image"
+              content="https://rentalrajkot.com/static/images/boys_hostel.svg">
+    """
+
+    return templates.TemplateResponse(
+        "listings_all.html",
+        {
+            "request": request,
+            "title": title,
+            "listings": listings,
+            "seo_html": seo_html,
+            "areas": areas,
+            "universities": universities,
+            "filter_selection_link": filter_selection_link
+        }
+    )
+
+@router.get("/girls-hostels-near-marwadi-university-rajkot")
+def girls_hostels_near_marwadi_university(
+        request: Request,
+        property_type: str = "",
+        area: str = "",
+        university: str = ""):
+
+    listings = listing_service.get_girls_hostels_near_marwadi_university(
+        property_type,
+        area,
+        university
+    )
+
+    areas = listing_service.get_all_areas()
+    universities = listing_service.get_all_universities()
+
+    filter_selection_link = "/girls-hostels-near-marwadi-university-rajkot"
+
+    title = "Girls Hostels Near Marwadi University Rajkot"
+
+    canonical = (
+        "https://rentalrajkot.com/"
+        "girls-hostels-near-marwadi-university-rajkot"
+    )
+
+    seo_html = f"""
+        <meta name="description"
+              content="Find girls hostels and PGs near Marwadi University, Rajkot. Compare affordable rooms, food, WiFi, AC, security, parking and other facilities for students near Marwadi University.">
+
+        <meta name="keywords"
+              content="Girls Hostel Near Marwadi University Rajkot,
+              Girls PG Near Marwadi University Rajkot,
+              Girls Hostel Marwadi University,
+              Girls PG Marwadi University,
+              Hostel Near Marwadi University Rajkot,
+              PG Near Marwadi University Rajkot,
+              Girls Hostel Rajkot,
+              Girls PG Rajkot,
+              Ladies Hostel Rajkot,
+              Student Hostel Near Marwadi University,
+              Affordable Girls PG Rajkot">
+
+        <meta name="robots"
+              content="index,follow">
+
+        <link rel="canonical"
+              href="{canonical}">
+
+        <meta property="og:title"
+              content="Girls Hostels Near Marwadi University Rajkot | Rental Rajkot">
+
+        <meta property="og:description"
+              content="Find girls hostels and PGs near Marwadi University, Rajkot. Compare rooms, rent, food, WiFi, AC, security and other facilities.">
+
+        <meta property="og:url"
+              content="{canonical}">
+
+        <meta property="og:type"
+              content="website">
+
+        <meta property="og:image"
+              content="https://rentalrajkot.com/static/images/girls_hostel.svg">
+    """
+
+    return templates.TemplateResponse(
+        "listings_all.html",
+        {
+            "request": request,
+            "title": title,
+            "listings": listings,
+            "seo_html": seo_html,
+            "areas": areas,
+            "universities": universities,
+            "filter_selection_link": filter_selection_link
+        }
+    )
+
+
 @router.get("/robots.txt", include_in_schema=False)
 def robots():
     return FileResponse("static/robots.txt")

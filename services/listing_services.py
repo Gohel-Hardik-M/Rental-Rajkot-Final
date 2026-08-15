@@ -260,6 +260,17 @@ class ListingService:
     def get_boys_hostels_near_university_road(self,property_type=None,area=None,university=None):
     
            return listingrepo.filter_listings(property_type,area,university,"Boys Only")
+
+
+    
+    def get_boys_hostels_near_marwadi_university(self,property_type=None,area=None,university=None):
+    
+           return listingrepo.filter_listings(property_type,area,university,"Boys Only")
+
+    def get_girls_hostels_near_marwadi_university(self,property_type=None,area=None,university=None):
+    
+           return listingrepo.filter_listings(property_type,area,university,"Girls Only")
+    
     
         
 
