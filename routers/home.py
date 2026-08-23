@@ -95,9 +95,9 @@ def girls_hostels_near_150_feet_ring_road(request: Request,
     
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+        name= "listings_all.html",
+        context={
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -174,9 +174,10 @@ def boys_hostels_near_university_road(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+     name=   "listings_all.html",
+       context= {
+
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -254,9 +255,10 @@ def boys_hostels_near_marwadi_university(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+     name=   "listings_all.html",
+       context= {
+
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -331,9 +333,9 @@ def girls_hostels_near_marwadi_university(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+     name=   "listings_all.html",
+       context= {
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -410,9 +412,10 @@ def girls_pg_near_marwadi_university(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+      name=  "listings_all.html",
+      context=  {
+         
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -492,9 +495,9 @@ def boys_pg_near_marwadi_university(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+        name="listings_all.html",
+       context= {
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -572,9 +575,10 @@ def boys_hostels_near_atmiya_university(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+       name= "listings_all.html",
+      context=  {
+          
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -652,9 +656,10 @@ def boys_pg_near_atmiya_university(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+        name="listings_all.html",
+        context={
+       
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -733,9 +738,10 @@ def girls_hostels_near_atmiya_university(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+       name= "listings_all.html",
+       context= {
+           
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -812,9 +818,10 @@ def girls_pg_near_atmiya_university(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+        name="listings_all.html",
+       context= {
+         
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -893,9 +900,10 @@ def boys_hostels_near_darshan_university(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+       name= "listings_all.html",
+       context= {
+    
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -972,9 +980,10 @@ def girls_hostels_near_darshan_university(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+       name= "listings_all.html",
+       context= {
+            
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -1050,9 +1059,10 @@ def boys_pg_near_darshan_university(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+      name=  "listings_all.html",
+       context= {
+       
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
@@ -1131,9 +1141,10 @@ def girls_pg_near_darshan_university(
     """
 
     return templates.TemplateResponse(
-        "listings_all.html",
-        {
-            "request": request,
+        request=request,
+       name= "listings_all.html",
+      context=  {
+  
             "title": title,
             "listings": listings,
             "seo_html": seo_html,
