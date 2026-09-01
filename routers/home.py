@@ -5,7 +5,7 @@ from starlette.middleware.sessions import SessionMiddleware
 
 
 
-
+from services.job_service import JobService
 from services.listing_services import ListingService
 
 from services.owner_services import OwnerService
@@ -38,6 +38,102 @@ def ads_txt():
 
 
 
+#==========================================================================================================================================
+# RENTAL RAJKOT JOBS SECTION 
+
+#==========================================================================================================================================
+
+
+
+@router.get("/add_job")
+def add_job(request:Request):
+    request.session["user_name"] = "Hardik"
+    categories =JobService.get_all_categories()
+    
+    return templates.TemplateResponse(
+        request=request,
+        name= "jobs_add_vacancy.html",
+        context={
+            "categories" : categories
+         
+        }
+    )
+
+
+@router.post("/owner/add-job")
+def create_job(
+
+    category_id: int = Form(...),
+
+    company_name: str = Form(...),
+
+    title: str = Form(...),
+
+    area: str = Form(...),
+
+    experience_min: float = Form(...),
+
+    experience_max: float | None = Form(None),
+
+    salary_min: float | None = Form(None),
+
+    description: str = Form(...),
+
+    skills: str | None = Form(None),
+
+    apply_link: str = Form(...),
+
+    is_featured: bool = Form(False)
+
+):
+
+    job_id = jobservice.create_job(
+
+        category_id=category_id,
+
+        company_name=company_name,
+
+        title=title,
+
+        area=area,
+
+        experience_min=experience_min,
+
+        experience_max=experience_max,
+
+        salary_min=salary_min,
+
+        description=description,
+
+        skills=skills,
+
+        apply_link=apply_link,
+
+        is_featured=is_featured
+
+    )
+
+    if job_id is None:
+
+        return RedirectResponse(
+            url="/owner/add-job",
+            status_code=303
+        )
+
+    return RedirectResponse(
+        url="/owner/add-job",
+        status_code=303
+    )
+
+
+
+
+
+
+
+
+
+#==========================================================================================================================================
 @router.get("/girls-hostels-near-150-feet-ring-road-rajkot")
 def girls_hostels_near_150_feet_ring_road(request: Request,
                  property_type: str = "",
