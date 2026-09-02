@@ -6,6 +6,8 @@ from starlette.middleware.sessions import SessionMiddleware
 
 
 from services.job_service import JobService
+
+job_service = JobService()
 from services.listing_services import ListingService
 
 from services.owner_services import OwnerService
@@ -43,12 +45,70 @@ def ads_txt():
 
 #==========================================================================================================================================
 
+@router.get("/jobs-in-rajkot")
+def jobs_page(request: Request):
+
+    print("===== JOBS PAGE =====")
+
+    jobs = job_service.get_all_jobs()
+
+    return templates.TemplateResponse(
+        request=request,
+        name="jobs.html",
+        context={
+            "jobs": jobs
+        }
+    )
 
 
-@router.get("/add_job")
+
+
+@router.get("/add-category")
+def add_category(request:Request):
+    
+    if "user_id" not in request.session:
+        return RedirectResponse(url="/", status_code=303)
+    if request.session["user_type"] != "JNB":
+        return RedirectResponse(url="/", status_code=303)
+
+    
+    
+    return templates.TemplateResponse(
+        request=request,
+        name= "add_job_category.html",
+        context={}
+    )
+
+
+@router.post("/owner/add-category")
+def create_category(
+    request:Request,category_name: str = Form(...)
+):
+    
+    if "user_id" not in request.session:
+        return RedirectResponse(url="/", status_code=303)
+    if request.session["user_type"] != "JNB":
+        return RedirectResponse(url="/", status_code=303)
+
+    category_id = job_service.add_category(
+        category_name=category_name
+    )
+
+    return RedirectResponse(
+        url="/add-category",
+        status_code=303
+    )
+
+
+@router.get("/add-job")
 def add_job(request:Request):
-    request.session["user_name"] = "Hardik"
-    categories =JobService.get_all_categories()
+    
+    if "user_id" not in request.session:
+        return RedirectResponse(url="/", status_code=303)
+    if request.session["user_type"] != "JNB":
+        return RedirectResponse(url="/", status_code=303)
+
+    categories =job_service.all_categories()
     
     return templates.TemplateResponse(
         request=request,
@@ -62,7 +122,7 @@ def add_job(request:Request):
 
 @router.post("/owner/add-job")
 def create_job(
-
+    request:Request,
     category_id: int = Form(...),
 
     company_name: str = Form(...),
@@ -86,8 +146,13 @@ def create_job(
     is_featured: bool = Form(False)
 
 ):
+    
+    if "user_id" not in request.session:
+        return RedirectResponse(url="/", status_code=303)
+    if request.session["user_type"] != "JNB":
+        return RedirectResponse(url="/", status_code=303)
 
-    job_id = jobservice.create_job(
+    job_id = job_service.create_job(
 
         category_id=category_id,
 
@@ -115,14 +180,26 @@ def create_job(
 
     if job_id is None:
 
-        return RedirectResponse(
-            url="/owner/add-job",
-            status_code=303
-        )
+        categories =job_service.all_categories()
+    
+        return templates.TemplateResponse(
+        request=request,
+        name= "jobs_add_vacancy.html",
+        context={
+            "categories" : categories
+         
+        }
+    )
 
-    return RedirectResponse(
-        url="/owner/add-job",
-        status_code=303
+    categories =job_service.all_categories()
+    
+    return templates.TemplateResponse(
+        request=request,
+        name= "jobs_add_vacancy.html",
+        context={
+            "categories" : categories
+         
+        }
     )
 
 
@@ -1442,6 +1519,13 @@ def owner_login_action(
          url="/admin/dashboard",
          status_code=303
            )
+    
+    if request.session["user_type"] == "JNB":
+           return RedirectResponse(
+         url="/add-job",
+         status_code=303
+           )
+
 
         
 

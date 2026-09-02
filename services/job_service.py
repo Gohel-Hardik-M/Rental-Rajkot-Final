@@ -11,11 +11,49 @@ class JobService:
 
         self.repository = JobRepository()
 
-    # ==========================================
-    # GET ALL JOB CATEGORIES
-    # ==========================================
 
-    def get_all_categories(self):
+    def get_all_jobs(self):
+
+        print("===== JOB SERVICE : GET ALL JOBS =====")
+
+        try:
+
+            return self.repository.get_all_jobs()
+
+        except Exception as e:
+
+            print("Exception Occurred :", e)
+
+            return []
+
+
+    def get_job_by_id(self, job_id):
+
+        print("===== JOB SERVICE : GET JOB BY ID =====")
+
+        try:
+
+            return self.repository.get_job_by_id(job_id)
+
+        except Exception as e:
+
+            print("Exception Occurred :", e)
+
+            return None
+
+    def add_category(self, category_name):
+
+     try:
+
+        return self.repository.add_category(category_name)
+
+     except Exception as e:
+
+        print("Exception Occurred :", e)
+
+        return False
+
+    def all_categories(self):
 
         try:
 
