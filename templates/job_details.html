@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Google AdSense -->
+    <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7664870121499576"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-WE8TT04EP2"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-WE8TT04EP2');
+    </script>
+
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+    <!-- SEO -->
+    <title>
+        {{ job.title }} Jobs in Rajkot | {{ job.company_name }} | Rental Rajkot
+    </title>
+
+    <meta name="description"
+          content="{{ job.company_name }} is hiring for {{ job.title }} in Rajkot, Gujarat. View job details, experience requirements, skills and application information on Rental Rajkot.">
+
+
+    <meta name="keywords"
+          content="{{ job.title }} jobs in Rajkot,
+                   jobs in Rajkot,
+                   job in Rajkot,
+                   Rajkot jobs,
+                   fresher jobs in Rajkot,
+                   {{ job.company_name }} jobs,
+                   {{ job.category_name }} jobs">
+
+
+    <meta name="robots" content="index, follow">
+
+
+    <!-- Canonical -->
+    <link rel="canonical"
+          href="https://rentalrajkot.com/job/{{ job.job_id }}">
+
+
+    <!-- Favicon -->
+    <link rel="icon"
+          href="/static/images/favi.jpeg"
+          type="image/x-icon">
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+          rel="stylesheet">
+
+
+    <!-- Rental Rajkot CSS -->
+    <link rel="stylesheet"
+          href="/static/css/style.css">
+
+
+    <style>
+
+        /* =========================================================
+           JOB DETAILS PAGE
+           Rental Rajkot Theme + Job Specific UI
+        ========================================================= */
+
+
+        .job-hero {
+            background: linear-gradient(
+                135deg,
+                #f7f8fc 0%,
+                #ffffff 100%
+            );
+
+            border-radius: 28px;
+            padding: 34px;
+
+            border: 1px solid #e9ebf2;
+
+            box-shadow:
+                0 12px 35px rgba(36, 48, 94, 0.07);
+        }
+
+
+        .job-company-icon {
+            width: 76px;
+            height: 76px;
+
+            border-radius: 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #24305E;
+            color: white;
+
+            font-size: 30px;
+            font-weight: 800;
+
+            flex-shrink: 0;
+        }
+
+
+        .job-category {
+            display: inline-flex;
+            align-items: center;
+
+            padding: 7px 13px;
+
+            border-radius: 30px;
+
+            background: #eef1ff;
+            color: #24305E;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+
+        .job-featured {
+            display: inline-flex;
+            align-items: center;
+
+            padding: 7px 13px;
+
+            border-radius: 30px;
+
+            background: #fff3cd;
+            color: #856404;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+
+        .job-title {
+            font-family: 'Fraunces', serif;
+
+            font-size: 2.35rem;
+            line-height: 1.15;
+
+            color: #1d2442;
+
+            margin-top: 14px;
+            margin-bottom: 8px;
+        }
+
+
+        .job-company {
+            font-size: 17px;
+            font-weight: 700;
+
+            color: #24305E;
+        }
+
+
+        .job-location {
+            color: #697086;
+
+            font-size: 14px;
+        }
+
+
+        .job-meta-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+
+            margin-top: 28px;
+        }
+
+
+        .job-meta-box {
+            background: #ffffff;
+
+            border: 1px solid #e8eaf0;
+
+            border-radius: 16px;
+
+            padding: 17px 15px;
+
+            min-height: 100px;
+        }
+
+
+        .job-meta-icon {
+            width: 34px;
+            height: 34px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background: #f1f3f9;
+
+            color: #24305E;
+
+            margin-bottom: 9px;
+        }
+
+
+        .job-meta-label {
+            font-size: 11px;
+
+            color: #7a8195;
+
+            text-transform: uppercase;
+
+            font-weight: 700;
+
+            letter-spacing: .4px;
+        }
+
+
+        .job-meta-value {
+            display: block;
+
+            margin-top: 3px;
+
+            color: #202640;
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+
+        /* Main content card */
+
+        .job-content-card {
+            background: #ffffff;
+
+            border: 1px solid #e9ebf2;
+
+            border-radius: 22px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 8px 28px rgba(36, 48, 94, 0.05);
+        }
+
+
+        .job-section {
+            margin-bottom: 34px;
+        }
+
+
+        .job-section:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .job-section-title {
+            font-family: 'Fraunces', serif;
+
+            font-size: 1.45rem;
+
+            color: #202640;
+
+            margin-bottom: 15px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+        }
+
+
+        .job-section-title i {
+            color: #24305E;
+
+            font-size: 19px;
+        }
+
+
+        .job-description {
+            color: #697086;
+
+            font-size: 15px;
+
+            line-height: 1.85;
+        }
+
+
+        .job-list {
+            padding-left: 0;
+
+            list-style: none;
+
+            margin-bottom: 0;
+        }
+
+
+        .job-list li {
+            position: relative;
+
+            padding-left: 29px;
+
+            margin-bottom: 12px;
+
+            color: #626a7f;
+
+            font-size: 14px;
+
+            line-height: 1.65;
+        }
+
+
+        .job-list li::before {
+            content: "\F26A";
+
+            font-family: "bootstrap-icons";
+
+            position: absolute;
+
+            left: 0;
+            top: 2px;
+
+            color: #24305E;
+
+            font-size: 15px;
+        }
+
+
+        /* Skills */
+
+        .job-skill {
+            display: inline-flex;
+
+            align-items: center;
+
+            padding: 8px 13px;
+
+            border-radius: 30px;
+
+            background: #f5f6fa;
+
+            border: 1px solid #e5e7ee;
+
+            color: #4e566d;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        /* Sidebar */
+
+        .job-apply-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7ee;
+
+            border-radius: 22px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 10px 30px rgba(36, 48, 94, 0.08);
+        }
+
+
+        .job-apply-title {
+            font-family: 'Fraunces', serif;
+
+            font-size: 1.4rem;
+
+            color: #202640;
+
+            margin-bottom: 8px;
+        }
+
+
+        .job-apply-text {
+            color: #737a8e;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin-bottom: 20px;
+        }
+
+
+        .job-apply-btn {
+            width: 100%;
+
+            padding: 13px 18px;
+
+            border-radius: 12px;
+
+            font-weight: 700;
+
+            font-size: 14px;
+
+            background: #24305E;
+
+            color: #ffffff;
+
+            border: none;
+
+            text-decoration: none;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            transition: .2s ease;
+        }
+
+
+        .job-apply-btn:hover {
+            background: #1b244a;
+
+            color: #ffffff;
+
+            transform: translateY(-1px);
+        }
+
+
+        .job-back-btn {
+            width: 100%;
+
+            padding: 11px 18px;
+
+            border-radius: 12px;
+
+            font-weight: 600;
+
+            font-size: 13px;
+
+            color: #24305E;
+
+            border: 1px solid #dfe2eb;
+
+            background: #ffffff;
+
+            text-decoration: none;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            margin-top: 10px;
+        }
+
+
+        .job-back-btn:hover {
+            background: #f7f8fc;
+
+            color: #24305E;
+        }
+
+
+        .job-status {
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            color: #198754;
+
+            margin-bottom: 18px;
+        }
+
+
+        .job-status-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #198754;
+        }
+
+
+        .job-company-box {
+            border-top: 1px solid #eceef3;
+
+            margin-top: 22px;
+
+            padding-top: 20px;
+        }
+
+
+        .job-company-name {
+            font-weight: 700;
+
+            color: #252b44;
+
+            font-size: 14px;
+        }
+
+
+        .job-company-location {
+            color: #737a8e;
+
+            font-size: 12px;
+
+            margin-top: 4px;
+        }
+
+
+        .job-source-note {
+            margin-top: 18px;
+
+            padding: 12px;
+
+            background: #f8f9fc;
+
+            border-radius: 10px;
+
+            font-size: 11px;
+
+            color: #7b8193;
+
+            line-height: 1.6;
+        }
+
+
+        /* Responsive */
+
+        @media (max-width: 991px) {
+
+            .job-meta-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .job-title {
+                font-size: 2rem;
+            }
+
+        }
+
+
+        @media (max-width: 576px) {
+
+            .job-hero {
+                padding: 22px;
+            }
+
+            .job-content-card {
+                padding: 22px;
+            }
+
+            .job-title {
+                font-size: 1.75rem;
+            }
+
+            .job-meta-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 9px;
+            }
+
+            .job-meta-box {
+                padding: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg rr-navbar sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand brand-lockup"
+           href="/">
+
+            <span class="keypin-mark">
+
+                <svg viewBox="0 0 40 40"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <path d="M14 4C8.5 4 4 8.5 4 14C4 19 7.4 23.2 12 24.4V33L14 36L16 33L18 36L20 33V24.4C24.6 23.2 28 19 28 14C28 8.5 23.5 4 18 4H14Z"
+                          fill="#24305E"/>
+
+                    <circle cx="16"
+                            cy="13"
+                            r="4"
+                            fill="#F5F6FA"/>
+
+                </svg>
+
+            </span>
+
+            Rental<span class="brand-accent">Rajkot</span>
+
+        </a>
+
+
+        <button class="navbar-toggler border-0"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse"
+             id="mainNav">
+
+
+            <ul class="navbar-nav mx-auto gap-1 mt-3 mt-lg-0">
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="/">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="/listings">
+
+                        Browse
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link active"
+                       href="/jobs">
+
+                        Jobs
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="/about">
+
+                        About
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+            <div class="d-flex gap-2 mt-3 mt-lg-0">
+
+                <a href="/owner/register"
+                   class="btn btn-rr-outline">
+
+                    <i class="bi bi-house-add"></i>
+
+                    List Your Property
+
+                </a>
+
+
+                <a href="/owner/login"
+                   class="btn btn-rr-primary">
+
+                    <i class="bi bi-person-circle"></i>
+
+                    Login
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     BREADCRUMB
+========================================================= -->
+
+<div class="container py-3">
+
+    <nav aria-label="breadcrumb"
+         class="breadcrumb-rr">
+
+        <ol class="breadcrumb mb-0">
+
+            <li class="breadcrumb-item">
+
+                <a href="/">
+                    Home
+                </a>
+
+            </li>
+
+
+            <li class="breadcrumb-item">
+
+                <a href="/jobs-in-rajkot">
+                    Jobs in Rajkot
+                </a>
+
+            </li>
+
+
+            <li class="breadcrumb-item active"
+                aria-current="page">
+                <a href="/job/{{job.job_id}}/details">
+                {{ job.title }}
+                </a>
+
+            </li>
+
+        </ol>
+
+    </nav>
+
+</div>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<section class="pb-5">
+
+    <div class="container">
+
+
+        <!-- =====================================================
+             JOB HERO
+        ====================================================== -->
+
+        <div class="job-hero mb-4">
+
+
+            <div class="d-flex align-items-start gap-3">
+
+
+                <!-- Company icon -->
+
+                <div class="job-company-icon">
+
+                    {{ job.company_name[:1]|upper }}
+
+                </div>
+
+
+                <div class="flex-grow-1">
+
+
+                    <div class="d-flex flex-wrap gap-2">
+
+
+                        {% if job.category_name %}
+
+                        <span class="job-category">
+
+                            <i class="bi bi-briefcase me-1"></i>
+
+                            {{ job.category_name }}
+
+                        </span>
+
+                        {% endif %}
+
+
+                        {% if job.is_featured %}
+
+                        <span class="job-featured">
+
+                            <i class="bi bi-star-fill me-1"></i>
+
+                            Featured Job
+
+                        </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <h1 class="job-title">
+
+                        {{ job.title }}
+
+                    </h1>
+
+
+                    <div class="job-company">
+
+                        {{ job.company_name }}
+
+                    </div>
+
+
+                    <div class="job-location mt-1">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        {{ job.area }}, Rajkot, Gujarat
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 JOB QUICK INFORMATION
+            ================================================== -->
+
+            <div class="job-meta-grid">
+
+
+                <!-- Location -->
+
+                <div class="job-meta-box">
+
+                    <div class="job-meta-icon">
+
+                        <i class="bi bi-geo-alt"></i>
+
+                    </div>
+
+                    <span class="job-meta-label">
+
+                        Location
+
+                    </span>
+
+                    <span class="job-meta-value">
+
+                        {{ job.area }}
+
+                    </span>
+
+                </div>
+
+
+                <!-- Experience -->
+
+                <div class="job-meta-box">
+
+                    <div class="job-meta-icon">
+
+                        <i class="bi bi-person-workspace"></i>
+
+                    </div>
+
+                    <span class="job-meta-label">
+
+                        Experience
+
+                    </span>
+
+                    <span class="job-meta-value">
+
+                        {% if job.experience_min == 0 and job.experience_max == 0.5 %}
+
+                            Fresher – 6 Months
+
+                        {% elif job.experience_min == 0 %}
+
+                            Fresher – {{ job.experience_max }} Years
+
+                        {% else %}
+
+                            {{ job.experience_min }} – {{ job.experience_max }} Years
+
+                        {% endif %}
+
+                    </span>
+
+                </div>
+
+
+                <!-- Salary -->
+
+                <div class="job-meta-box">
+
+                    <div class="job-meta-icon">
+
+                        <i class="bi bi-cash-stack"></i>
+
+                    </div>
+
+                    <span class="job-meta-label">
+
+                        Salary
+
+                    </span>
+
+                    <span class="job-meta-value">
+
+                        {% if job.salary_min %}
+
+                            ₹ {{ job.salary_min }}
+
+                        {% else %}
+
+                            Not Mentioned
+
+                        {% endif %}
+
+                    </span>
+
+                </div>
+
+
+                <!-- Posted -->
+
+                <div class="job-meta-box">
+
+                    <div class="job-meta-icon">
+
+                        <i class="bi bi-calendar3"></i>
+
+                    </div>
+
+                    <span class="job-meta-label">
+
+                        Posted
+
+                    </span>
+
+                    <span class="job-meta-value">
+
+                        {{ job.posted_date }}
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             CONTENT + SIDEBAR
+        ====================================================== -->
+
+        <div class="row g-4">
+
+
+            <!-- =================================================
+                 LEFT CONTENT
+            ================================================== -->
+
+            <div class="col-lg-8">
+
+
+                <div class="job-content-card">
+
+
+                    <!-- Description -->
+
+                    <div class="job-section">
+
+                        <h2 class="job-section-title">
+
+                            <i class="bi bi-file-text"></i>
+
+                            Job Description
+
+                        </h2>
+
+
+                        <p class="job-description">
+
+                            {{ job.description }}
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- Skills -->
+
+                    <div class="job-section">
+
+                        <h2 class="job-section-title">
+
+                            <i class="bi bi-tools"></i>
+
+                            Skills
+
+                        </h2>
+
+
+                        <div class="d-flex flex-wrap gap-2">
+
+
+                            {% if job.skills %}
+
+                                {% for skill in job.skills.split(',') %}
+
+                                    <span class="job-skill">
+
+                                        {{ skill.strip() }}
+
+                                    </span>
+
+                                {% endfor %}
+
+                            {% else %}
+
+                                <span class="job-skill">
+                                    Client Coordination
+                                </span>
+
+                            {% endif %}
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Location -->
+
+                    <div class="job-section">
+
+                        <h2 class="job-section-title">
+
+                            <i class="bi bi-geo-alt"></i>
+
+                            Job Location
+
+                        </h2>
+
+
+                        <p class="job-description mb-0">
+
+                            {{ job.area }}, Rajkot, Gujarat
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RIGHT SIDEBAR
+            ================================================== -->
+
+            <div class="col-lg-4">
+
+
+                <div class="job-apply-card sticky-summary">
+
+
+                    <!-- Status -->
+
+                    <div class="job-status">
+
+                        <span class="job-status-dot"></span>
+
+                        Currently Hiring
+
+                    </div>
+
+
+                    <h2 class="job-apply-title">
+
+                        Interested in this job?
+
+                    </h2>
+
+
+                    <p class="job-apply-text">
+
+                        Apply directly through the employer's application page using the button below.
+
+                    </p>
+
+
+
+                    <!-- Apply -->
+
+                    {% if job.apply_link %}
+
+                    <a href="{{ job.apply_link }}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="job-apply-btn">
+
+                        <i class="bi bi-send-fill"></i>
+
+                        Apply Now
+
+                    </a>
+
+                    {% else %}
+
+                    <button class="job-apply-btn"
+                            disabled>
+
+                        Application Link Unavailable
+
+                    </button>
+
+                    {% endif %}
+
+
+
+                    <!-- Back -->
+
+                    <a href="/jobs-in-rajkot"
+                       class="job-back-btn">
+
+                        <i class="bi bi-arrow-left"></i>
+
+                        Back to Jobs
+
+                    </a>
+
+
+
+                    <!-- Company -->
+
+                    <div class="job-company-box">
+
+
+                        <div class="d-flex align-items-center gap-3">
+
+
+                            <div class="job-company-icon"
+                                 style="width:50px;
+                                        height:50px;
+                                        border-radius:13px;
+                                        font-size:20px;">
+
+                                {{ job.company_name[:1]|upper }}
+
+                            </div>
+
+
+                            <div>
+
+                                <div class="job-company-name">
+
+                                    {{ job.company_name }}
+
+                                </div>
+
+
+                                <div class="job-company-location">
+
+                                    {{ job.area }}, Rajkot
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Source note -->
+
+                    <div class="job-source-note">
+
+                        <i class="bi bi-info-circle me-1"></i>
+
+                        Job information is provided for informational purposes.
+                        Please verify the opening and application details with the employer before applying.
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="rr-footer">
+
+    <div class="container text-center small">
+
+        &copy; 2026 Rental Rajkot. All rights reserved.
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>

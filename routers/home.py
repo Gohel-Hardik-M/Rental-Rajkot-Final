@@ -62,6 +62,24 @@ def jobs_page(request: Request):
 
 
 
+@router.get("/job/{job_id}/details")
+def get_listing_details(request: Request, job_id: int):
+
+    job = job_service.get_job_by_id(job_id)
+    print("JOB _____________>>>>>>>>>>>>>>>>>>>>",job)
+
+    if job is None:
+        return RedirectResponse(url='/jobs-in-rajkot',status_code=302)
+
+    return templates.TemplateResponse(
+       name= "job_details.html",
+       request= request,
+       context= {
+            "request": request,
+            "job": job
+        }
+    )
+
 
 @router.get("/add-category")
 def add_category(request:Request):

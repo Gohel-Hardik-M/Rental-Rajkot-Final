@@ -169,7 +169,7 @@ gtag('config', 'G-WE8TT04EP2');
                     <a class="nav-link active"
                        href="/jobs">
 
-                        Jobs
+                        Jobs In Rajkot
 
                     </a>
 
@@ -248,8 +248,9 @@ gtag('config', 'G-WE8TT04EP2');
 
             <li class="breadcrumb-item active"
                 aria-current="page">
-
+                <a href="/jobs-in-rajkot">
                 Jobs in Rajkot
+                </a>
 
             </li>
 
@@ -656,6 +657,7 @@ gtag('config', 'G-WE8TT04EP2');
                         </span>
 
                         {% endif %}
+                        <br>
 
 
 
@@ -818,7 +820,7 @@ gtag('config', 'G-WE8TT04EP2');
                                    mb-3">
 
 
-                            {% for skill in job.skills.split(",") %}
+                            {% for skill in job.skills.split(",")[0:3] %}
 
 
                             <span class="facility-pill">
@@ -831,13 +833,13 @@ gtag('config', 'G-WE8TT04EP2');
 
 
                             </span>
-
+                        
 
                             {% endfor %}
-
+                            ...
 
                         </div>
-
+                    
 
                         {% endif %}
 
@@ -887,25 +889,14 @@ gtag('config', 'G-WE8TT04EP2');
 
                         <!-- APPLY -->
 
-                        <a href="{{ job.apply_link }}"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="btn btn-primary btn-sm">
-
-
-                            <i class="bi bi-send-fill"></i>
-
-                            Apply
-
-
-                        </a>
+                      
 
 
 
                         <!-- DETAILS -->
 
                         <a
-                            href="/job/{{ job.job_id }}"
+                            href="/job/{{job.job_id}}/details"
                             class="btn btn-warning
                                    btn-sm
                                    text-dark

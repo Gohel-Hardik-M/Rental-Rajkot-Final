@@ -126,7 +126,7 @@ class JobRepository:
 
             WHERE
                 j.job_id = %s
-                AND j.status = 'active'
+                AND j.status = 'ACTIVE'
             """
 
             cursor.execute(sql, (job_id,))
