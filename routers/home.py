@@ -6,7 +6,8 @@ from starlette.middleware.sessions import SessionMiddleware
 
 
 from services.job_service import JobService
-
+from services.contact_service import ContactService
+contact_service = ContactService()
 job_service = JobService()
 from services.listing_services import ListingService
 
@@ -39,6 +40,52 @@ def ads_txt():
 
 
 
+
+@router.get("/privacy-policy")
+def privacy_page(request: Request):
+    return templates.TemplateResponse(
+        name="privacy.html",
+        request=request
+    )
+
+@router.get("/contact")
+def contact_page(request: Request):
+    return templates.TemplateResponse(
+        name="contact.html",
+        request=request
+    )
+
+@router.post("/contact/send")
+def send_contact_message(
+    request: Request,
+    name: str = Form(...),
+    email: str = Form(...),
+    subject: str = Form(...),
+    message: str = Form(...)
+):
+    message_id = contact_service.save_contact_message(
+        name=name,
+        email=email,
+        subject=subject,
+        message=message
+    )
+
+    if message_id is not None:
+        return templates.TemplateResponse(
+            name="contact.html",
+            request=request,
+            context={
+                "success": "Your message has been received. We will get back to you soon."
+            }
+        )
+
+    return templates.TemplateResponse(
+        name="contact.html",
+        request=request,
+        context={
+            "error": "Something went wrong. Please try again."
+        }
+    )
 
 #==========================================================================================================================================
 # RENTAL RAJKOT JOBS SECTION 
